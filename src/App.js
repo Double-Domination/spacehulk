@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
+import  React from  'react';
 import './App.css';
-/**/import United from '';
+import ModernCounterButton from './components/Board';
 
 function App() {
   return (
     <div className="spacehulk-deathwing">
       purge them all default
-
+	    <ModernCounterButton/>
 
     </div>
   );
