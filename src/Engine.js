@@ -6,21 +6,31 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 
-function Engine() {
-	function formatNmae() {
-		const extendedUser={
-			firstName: 'Double',
-			lastName: 'Doumination',
 
-		};
-		return extendedUser.firstName + ' ' + extendedUser.lastName;
+function formatName(user) {
+	return user.firstName + ' ' + user.lastName;
+}
+
+const user={
+	firstName: "first",
+	lastName: "second",
+};
+
+function getGreeting(user) {
+	if(user) {
+		return <h1>Hail to {formatName(user)}</h1>
 	}
+	return <h1>Hail, stranger</h1>;
+}
 
-	/*const element=<h1>For the emperor</h1>;*/
+
+function Engine() {
+
+
 
 	return(
 		<div className="horizontal-divider">
-			{formatNmae()}
+			{getGreeting(user)}
 		</div>
 	)
 }
