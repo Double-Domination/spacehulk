@@ -4,6 +4,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Engine from './Engine'
+
+
+/*
+
+function HorizontalDivider(props) {
+	return(
+		<div className="horizontal-divider">
+			{props.value}
+		</div>
+	);
+}
+*/
+/*
+
+function Smth() {
+	return(
+		<Engine/>
+	)
+}
+
+*/
 
 function Square(props) {
 	return (
@@ -89,6 +111,7 @@ class Game extends React.Component {
 	}
 
 	render() {
+
 		const history=this.state.history;
 		const current = history[this.state.stepNumber];
 		const winner=calculateWinner(current.squares);
@@ -114,7 +137,9 @@ class Game extends React.Component {
 		}
 
 		return (
+			<>
 			<div className="game">
+
 				<div className="game-board">
 					<Board
 						squares={current.squares}
@@ -127,9 +152,31 @@ class Game extends React.Component {
 					<ol>{moves}</ol>
 				</div>
 			</div>
+			<Engine/>
+			</>
 		);
 	}
 }
+
+/*
+
+class Divider extends React.Component{
+	constructor(props){
+		super(props);
+		this.state={
+			dividerText:this.props
+		}
+	}
+
+	render(){
+
+	<HorizontalDivider/>
+	}
+}
+
+*/
+
+
 
 // ========================================
 
