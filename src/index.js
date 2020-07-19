@@ -6,27 +6,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Engine from './Engine'
 
-
-/*
-
-function HorizontalDivider(props) {
-	return(
-		<div className="horizontal-divider">
-			{props.value}
-		</div>
-	);
-}
-*/
-/*
-
-function Smth() {
-	return(
-		<Engine/>
-	)
-}
-
-*/
-
 function Square(props) {
 	return (
 		<button className="square" onClick={props.onClick}>
@@ -158,23 +137,7 @@ class Game extends React.Component {
 	}
 }
 
-/*
 
-class Divider extends React.Component{
-	constructor(props){
-		super(props);
-		this.state={
-			dividerText:this.props
-		}
-	}
-
-	render(){
-
-	<HorizontalDivider/>
-	}
-}
-
-*/
 
 
 
@@ -182,6 +145,8 @@ class Divider extends React.Component{
 
 ReactDOM.render(
 	<Game />,
+
+
 	document.getElementById('root')
 );
 

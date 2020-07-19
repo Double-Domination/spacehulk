@@ -7,9 +7,20 @@ import './index.css';
 
 
 function Engine() {
+	function formatNmae() {
+		const extendedUser={
+			firstName: 'Double',
+			lastName: 'Doumination',
+
+		};
+		return extendedUser.firstName + ' ' + extendedUser.lastName;
+	}
+
+	/*const element=<h1>For the emperor</h1>;*/
+
 	return(
 		<div className="horizontal-divider">
-			11111111111111111
+			{formatNmae()}
 		</div>
 	)
 }
