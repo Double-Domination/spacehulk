@@ -7,6 +7,30 @@ import './index.css';
 import Engine from './Engine'
 
 
+/*
+function Welcome(props) {
+	return <h1>Hail, {props.name}</h1>
+}
+*/
+
+/*
+
+class Welcome extends React.Component{
+	constructor(props){
+		super(props);
+		this.props.hail="DOMINATOR";
+	}
+	render(){
+		return <h1>Hail, {this.hail}</h1>;
+	}
+}
+*/
+
+
+function Welcome(props) {
+	return <h1>Hail, {props.hail}</h1>
+}
+
 
 function Square(props) {
 	return (
@@ -138,6 +162,9 @@ class Game extends React.Component {
 				</div>
 			</div>
 			<Engine/>
+			<Welcome hail="CALDOR!">
+
+			</Welcome>
 			</>
 		);
 	}
@@ -145,24 +172,11 @@ class Game extends React.Component {
 
 
 
-/*
+ReactDOM.render(
+	<Game/>,
 
 
-function tick() {
-	const element = (
-		<div>
-			<h1>Hello, world!</h1>
-			<h2>It is {new Date().toLocaleTimeString()}.</h2>
-		</div>
-	);
-
-}
-
-	setInterval(tick, 1000);
-*/
-
-
-ReactDOM.render(<Game/>, document.getElementById('root'));
+	document.getElementById('root'));
 
 
 
