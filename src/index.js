@@ -6,13 +6,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Engine from './Engine'
 
+
+
 function Square(props) {
 	return (
+
 		<button className="square" onClick={props.onClick}>
 			{props.value}
 		</button>
 	);
 }
+
+
+
 
 class Board extends React.Component {
 
@@ -141,14 +147,18 @@ class Game extends React.Component {
 
 
 
-// ========================================
+function tick() {
+	const element = (
+		<div>
+			<h1>Hello, world!</h1>
+			<h2>It is {new Date().toLocaleTimeString()}.</h2>
+		</div>
+	);
+	ReactDOM.render(element, document.getElementById('root'));
+}
 
-ReactDOM.render(
-	<Game />,
+	setInterval(tick, 1000);
 
-
-	document.getElementById('root')
-);
 
 function calculateWinner(squares) {
 	const lines = [

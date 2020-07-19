@@ -59,6 +59,5 @@ ol, ul {
     content: "";
     clear: both;
     width: 100%;
-    height: 10px;
     background-color: green;
 }

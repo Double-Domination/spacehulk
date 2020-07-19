@@ -24,15 +24,32 @@ function getGreeting(user) {
 }
 
 
+const monstousElement=<div>
+	<ol>
+		<li>ffjgjf</li>
+		<li>ffjgjf</li>
+		<li>ffjgjf</li>
+		<li>ffjgjf</li>
+	</ol>
+</div>;
+
+
+
+
 function Engine() {
 
 
 
 	return(
 		<div className="horizontal-divider">
+
 			{getGreeting(user)}
+			{monstousElement}
+
 		</div>
 	)
 }
+
+
 
 export default Engine;
