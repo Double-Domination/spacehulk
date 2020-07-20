@@ -7,15 +7,35 @@ import './index.css';
 import Engine from './Engine'
 
 
-function Clock(props){
+class Clock extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+        	date: new Date(),
+        	smth: "Something valueble here",
+        }
+
+    }
+    render(){
+        return(
+	        <div>
+		        <h1>Hail to the King</h1>
+		        <h2>Now is {this.state.date.toLocaleString ()}</h2>
+		        <h3>Display something from state here: {this.state.smth}</h3>
+	        </div>
+        );
+    }
+}
+/*function Clock(props){
 	return (
 		<div>
 			<h1>Hail to the King!</h1>
 			<h2>Current time is {props.date.toLocaleString ()}</h2>
 		</div>
 	);
-}
+}*/
 
+/*
 	function tickTag() {
 		ReactDOM.render(
 			<Clock date={new Date()}/>,
@@ -25,6 +45,7 @@ function Clock(props){
 
 
 setInterval(tickTag, 1000);
+*/
 
 
 /*function Comment(props) {
@@ -214,17 +235,17 @@ class Game extends React.Component {
 	}
 }
 
-/*
+
 
 
 ReactDOM.render(
-	<Game/>,
+	<Clock/>,
 
 	document.getElementById('root'));
 
 
 
-*/
+
 
 
 function calculateWinner(squares) {
