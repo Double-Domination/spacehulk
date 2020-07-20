@@ -61,3 +61,8 @@ ol, ul {
     width: 100%;
     background-color: green;
 }
+
+.Comment{
+    border: 2px dashed green;
+    padding: 5px;
+}
