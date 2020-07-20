@@ -7,27 +7,27 @@ import './index.css';
 import Engine from './Engine'
 
 
-/*
-function Welcome(props) {
-	return <h1>Hail, {props.name}</h1>
+function Clock(props){
+	return (
+		<div>
+			<h1>Hail to the King!</h1>
+			<h2>Current time is {props.date.toLocaleString ()}</h2>
+		</div>
+	);
 }
-*/
 
-/*
-
-class Welcome extends React.Component{
-	constructor(props){
-		super(props);
-		this.props.hail="DOMINATOR";
+	function tickTag() {
+		ReactDOM.render(
+			<Clock date={new Date()}/>,
+			document.getElementById('root')
+		);
 	}
-	render(){
-		return <h1>Hail, {this.hail}</h1>;
-	}
-}
-*/
 
 
-function Comment(props) {
+setInterval(tickTag, 1000);
+
+
+/*function Comment(props) {
 	return(
 		<div className="Comment">
 			<UserInfo user={props.author}/>
@@ -38,10 +38,9 @@ function Comment(props) {
 				<div className="Comment-date">
 					{formatDate(props.date)}
 				</div>
-
 		</div>
 	);
-}
+}*/
 
 function Avatar(props) {
 	return (
@@ -215,6 +214,7 @@ class Game extends React.Component {
 	}
 }
 
+/*
 
 
 ReactDOM.render(
@@ -224,6 +224,7 @@ ReactDOM.render(
 
 
 
+*/
 
 
 function calculateWinner(squares) {
