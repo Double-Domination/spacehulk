@@ -7,15 +7,41 @@ import './index.css';
 import Engine from './Engine'
 
 
-class Clock extends React.Component{
-    constructor(props){
-        super(props);
-        this.state={
-        	date: new Date(),
-        	smth: "Something valueble here",
-        }
+function App() {
+	return (
+		<div>
+			<Clock refreshRate="1000"/>
+			<Clock refreshRate="2000"/>
+			<Clock refreshRate="3000"/>
+		</div>
+	);
+}
 
+
+class Clock extends React.Component{
+    constructor(props) {
+	    super (props);
+	    this.state = {
+		    date: new Date (),
+		    smth: "Something valueble here",
+	    };
     }
+        componentDidMount(){
+		    this.timerID=setInterval(
+			    ()=>this.tick(), this.props.refreshRate
+		    );
+	    }
+
+        componentWillUnmount(){
+			clearInterval(this.timerID);
+	    }
+
+	    tick(){
+        	this.setState({
+                date: new Date(),
+            });
+	    }
+
     render(){
         return(
 	        <div>
@@ -239,7 +265,7 @@ class Game extends React.Component {
 
 
 ReactDOM.render(
-	<Clock/>,
+	<App/>,
 
 	document.getElementById('root'));
 
