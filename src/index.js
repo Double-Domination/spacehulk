@@ -7,6 +7,34 @@ import './index.css';
 import Engine from './Engine'
 
 
+
+
+function activateWeaponSystem(props) {
+	function activateLasers() {
+		console.log ("Pew, pew ");
+	}
+	return (
+		<button onClick={activateLasers}>
+			Press to activate
+		</button>
+	);
+}
+
+function ActionLink() {
+	function handleClick(e) {
+		e.preventDefault();
+		console.log ("Handle click haz been activated ");
+	}
+
+	return (
+		<a href="#" onClick={handleClick()}> Press me</a>
+	);
+}
+
+
+
+
+
 function App() {
 	return (
 		<div>
@@ -16,6 +44,9 @@ function App() {
 		</div>
 	);
 }
+
+
+
 
 
 class Clock extends React.Component{
