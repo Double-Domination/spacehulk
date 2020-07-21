@@ -39,14 +39,35 @@ function App() {
 	return (
 		<div>
 			<Clock refreshRate="1000"/>
-			<Clock refreshRate="2000"/>
-			<Clock refreshRate="3000"/>
+			<Toggle/>
 		</div>
 	);
 }
 
 
+class Toggle extends React.Component{
+	constructor(props){
+		super(props);
+		this.state={isToggleOn:true};
+		//this must be binded to object enviroment. Oterwise it didnt work
+		this.handleClick= this.handleClick.bind(this);
+	}
 
+	handleClick(){
+		this.setState((state)=>({
+			isToggleOn:!state.isToggleOn,
+		}));
+	}
+
+
+	render(){
+		return(
+			<button onClick={this.handleClick}>
+				{this.state.isToggleOn ? 'on' : 'of'}
+			</button>
+		);
+	}
+}
 
 
 class Clock extends React.Component{
@@ -83,42 +104,7 @@ class Clock extends React.Component{
         );
     }
 }
-/*function Clock(props){
-	return (
-		<div>
-			<h1>Hail to the King!</h1>
-			<h2>Current time is {props.date.toLocaleString ()}</h2>
-		</div>
-	);
-}*/
 
-/*
-	function tickTag() {
-		ReactDOM.render(
-			<Clock date={new Date()}/>,
-			document.getElementById('root')
-		);
-	}
-
-
-setInterval(tickTag, 1000);
-*/
-
-
-/*function Comment(props) {
-	return(
-		<div className="Comment">
-			<UserInfo user={props.author}/>
-				<div className="Comment-text">
-					{props.text}
-				</div>
-
-				<div className="Comment-date">
-					{formatDate(props.date)}
-				</div>
-		</div>
-	);
-}*/
 
 function Avatar(props) {
 	return (
