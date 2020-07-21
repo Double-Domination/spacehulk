@@ -66,3 +66,21 @@ ol, ul {
     border: 2px dashed green;
     padding: 5px;
 }
+
+/*Table Styling*/
+
+table{
+    font-family: Arial,sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th{
+    border: 2px solid #abcdef;
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even){
+    background-color: #999999;
+}

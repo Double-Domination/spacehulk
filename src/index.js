@@ -9,6 +9,36 @@ import Engine from './Engine'
 
 
 
+function Greeeting(props) {
+	const isLoggedIn=props.isLoggedIn;
+	if(isLoggedIn) {
+		return (
+			<UserGreeting/>
+		);
+	}
+	return (
+		<GuestGreeting/>
+		);
+}
+
+
+
+function UserGreeting(props) {
+	return (
+		<h1>Nice to see your return!</h1>
+	);
+}
+
+function GuestGreeting(props) {
+	return (
+		<h1>Please, log in </h1>
+	);
+}
+
+
+
+
+
 function activateWeaponSystem(props) {
 	function activateLasers() {
 		console.log ("Pew, pew ");
@@ -38,11 +68,49 @@ function ActionLink() {
 function App() {
 	return (
 		<div>
-			<Clock refreshRate="1000"/>
-			<Toggle/>
+			<Greeeting isLoggedIn={true}/>
 		</div>
 	);
 }
+
+
+/*TODO Custom table*/
+/*class RandomTable extends React.Component{
+    constructor(props){
+        super(props);
+
+        /!*let table=document.getElementById("main-table");*!/
+        /!*this.deleteTableRow=this.deleteTableRow.bind(this);*!/
+
+    }
+	/!*  deleteTableRow(){
+	    console.log ("Method deleteTableRow was invoked ");
+    }
+	*!/
+    render(){
+        return(
+	        <table id="main-table">
+		        <tr>
+			        <th>company</th>
+			        <th>contract</th>
+			        <th>county</th>
+		        </tr>
+		        <tr>
+			        <td>aaa</td>
+			        <td>sss</td>
+			        <td>ddd</td>
+		        </tr>
+		        <tr>
+			        <td>hhh</td>
+			        <td>
+
+			        </td>
+			        <td>eee</td>
+		        </tr>
+	        </table>
+        );
+    }
+}*/
 
 
 class Toggle extends React.Component{
