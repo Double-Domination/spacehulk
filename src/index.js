@@ -7,6 +7,67 @@ import './index.css';
 import Engine from './Engine'
 
 
+
+
+function WarningBanner(props){
+	if(!props.warn) {
+		return null;
+	}
+	return (
+		<div className="warning">
+			Warning, your troops under attack!
+		</div>
+	);
+}
+
+class Page extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={showWarning:true};
+        this.handleToggleClick=this.handleToggleClick.bind(this);
+    }
+	handleToggleClick() {
+		this.setState(state => ({
+			showWarning: !state.showWarning
+		}));
+	}
+    render(){
+        return(
+	        <div>
+		        <WarningBanner warn={this.state.showWarning}/>
+		        <button onClick={this.handleToggleClick}>
+			        {this.state.showWarning ? 'Hide' : 'Show it!'}
+
+		        </button>
+	        </div>
+
+        );
+    }
+}
+
+
+
+
+
+
+function Mailbox(props){
+	const  unreadMessages=props.unreadMessages;
+	return (
+		<div>
+			<h1>Hail!</h1>
+			{unreadMessages.length>0 &&
+			 <h2>You have {unreadMessages.length} unread messages</h2>
+			}
+
+		</div>
+	);
+}
+
+
+const messages=['React',];
+
+
+
 class LoginControl extends React.Component {
 	constructor(props) {
 		super(props);
@@ -75,7 +136,7 @@ function LogoutButton(props) {
 }
 
 ReactDOM.render(
-	<LoginControl />,
+	<Page/>,
 	document.getElementById('root')
 );
 
@@ -112,7 +173,6 @@ function ActionLink() {
 function App() {
 	return (
 		<div>
-			<LoginControl/>
 		</div>
 	);
 }
@@ -392,12 +452,14 @@ class Game extends React.Component {
 
 
 
+/*
 
 ReactDOM.render(
 	<App/>,
 
 	document.getElementById('root'));
 
+*/
 
 
 
