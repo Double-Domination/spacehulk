@@ -8,13 +8,20 @@ import Engine from './Engine'
 
 
 
+const numbers = [1, 2, 3, 4, 5, 6, 7];
+const listitems=numbers.map((curNumber)=>
+	<li>{curNumber}</li>
+);
+
+
+
 
 function WarningBanner(props){
 	if(!props.warn) {
 		return null;
 	}
 	return (
-		<div className="warning">
+		<div className="warning-banner">
 			Warning, your troops under attack!
 		</div>
 	);
@@ -136,7 +143,9 @@ function LogoutButton(props) {
 }
 
 ReactDOM.render(
-	<Page/>,
+	<ul>
+		{listitems}
+	</ul>,
 	document.getElementById('root')
 );
 

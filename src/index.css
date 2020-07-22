@@ -84,3 +84,7 @@ td, th{
 tr:nth-child(even){
     background-color: #999999;
 }
+
+.warning-banner{
+    background-color: orange;
+}
