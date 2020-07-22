@@ -8,13 +8,14 @@ import Engine from './Engine'
 
 
 function NumberList(props){
-
+	/*const randomArray=[1,5,37,7,3,6,3,"hghsh", 6, 7,7];*/
 	const numbers = props.castNumbers;
 	const listitems=numbers.map(
-		(curNumber)=>
-          <li>{curNumber}</li>
+		(curNumber, curIndex)=>
+			<li key={(curIndex).toString()}>
+				{curNumber}
+			</li>
 	);
-
 	return (
 		<ul>{listitems}</ul>
 	);
