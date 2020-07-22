@@ -7,92 +7,80 @@ import './index.css';
 import Engine from './Engine'
 
 
-class LoginControl extends React.Component{
-    constructor(props){
-        super(props);
-        this.handleLoginClick=this.handleLoginClick.bind(this);
-        this.handleLogoutClick=this.handleLogoutClick.bind(this);
-        this.state={isLoggedIn:false};
-    }
-
-    handleLoginClick(){
-    	this.setState({isLoggedIn:true});
-    }
-
-	handleLogoutClick(){
-		this.setState({isLoggedIn:false});
+class LoginControl extends React.Component {
+	constructor(props) {
+		super(props);
+		this.handleLoginClick = this.handleLoginClick.bind(this);
+		this.handleLogoutClick = this.handleLogoutClick.bind(this);
+		this.state = {isLoggedIn: false};
 	}
 
-    render(){
-		const isLoggedIn=this.state.isLoggedIn;
+	handleLoginClick() {
+		this.setState({isLoggedIn: true});
+	}
+
+	handleLogoutClick() {
+		this.setState({isLoggedIn: false});
+	}
+
+	render() {
+		const isLoggedIn = this.state.isLoggedIn;
 		let button;
-	    if(isLoggedIn) {
-	    	button=<LogoutButton onClick={this.handleLogoutClick()} />;
-	    }else{
-	    	button=<LoginButton onClick={this.handleLoginClick()}/>;
-	    }
 
+		if (isLoggedIn) {
+			button = <LogoutButton onClick={this.handleLogoutClick} />;
+		} else {
+			button = <LoginButton onClick={this.handleLoginClick} />;
+		}
 
-	    return(
-	    <div>
-		    <Greeting isLoggedIn={isLoggedIn}/>
-		    {button}
-	    </div>
-        );
-    }
+		return (
+			<div>
+				<Greeting isLoggedIn={isLoggedIn} />
+				{button}
+			</div>
+		);
+	}
 }
 
+function UserGreeting(props) {
+	return <h1>Welcome back!</h1>;
+}
 
+function GuestGreeting(props) {
+	return <h1>Please sign up.</h1>;
+}
 
-function LoginButton(props){
+function Greeting(props) {
+	const isLoggedIn = props.isLoggedIn;
+	if (isLoggedIn) {
+		return <UserGreeting />;
+	}
+	return <GuestGreeting />;
+}
+
+function LoginButton(props) {
 	return (
 		<button onClick={props.onClick}>
-			Log in now!
+			Login
 		</button>
 	);
 }
 
-
-
-function LogoutButton(props){
+function LogoutButton(props) {
 	return (
-		<button onClick={props.onClick}>Quit</button>
+		<button onClick={props.onClick}>
+			Logout
+		</button>
 	);
 }
 
+ReactDOM.render(
+	<LoginControl />,
+	document.getElementById('root')
+);
 
 
-
-
-
-function Greeting(props) {
-	const isLoggedIn=props.isLoggedIn;
-	if(!isLoggedIn) {
-		return (
-			<UserGreeting/>
-		);
-	}
-	return (
-		<GuestGreeting/>
-		);
-}
-
-
-
-function UserGreeting(props) {
-	return (
-		<h1>Nice to see your return!</h1>
-	);
-}
-
-function GuestGreeting(props) {
-	return (
-		<h1>Please, log in </h1>
-	);
-}
-
-
-
+/*************************************************************/
 
 
 function activateWeaponSystem(props) {
