@@ -7,11 +7,22 @@ import './index.css';
 import Engine from './Engine'
 
 
+function NumberList(props){
 
-const numbers = [1, 2, 3, 4, 5, 6, 7];
-const listitems=numbers.map((curNumber)=>
-	<li>{curNumber}</li>
-);
+	const numbers = props.castNumbers;
+	const listitems=numbers.map(
+		(curNumber)=>
+          <li>{curNumber}</li>
+	);
+
+	return (
+		<ul>{listitems}</ul>
+	);
+}
+
+
+
+
 
 
 
@@ -142,10 +153,10 @@ function LogoutButton(props) {
 	);
 }
 
+
+const randomArray=[1,5,37,7,3,6,3,"hghsh", 6, 7,7];
 ReactDOM.render(
-	<ul>
-		{listitems}
-	</ul>,
+	<NumberList castNumbers={randomArray}/>,
 	document.getElementById('root')
 );
 
