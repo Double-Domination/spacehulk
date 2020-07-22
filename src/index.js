@@ -7,11 +7,67 @@ import './index.css';
 import Engine from './Engine'
 
 
+class LoginControl extends React.Component{
+    constructor(props){
+        super(props);
+        this.handleLoginClick=this.handleLoginClick.bind(this);
+        this.handleLogoutClick=this.handleLogoutClick.bind(this);
+        this.state={isLoggedIn:false};
+    }
+
+    handleLoginClick(){
+    	this.setState({isLoggedIn:true});
+    }
+
+	handleLogoutClick(){
+		this.setState({isLoggedIn:false});
+	}
+
+    render(){
+		const isLoggedIn=this.state.isLoggedIn;
+		let button;
+	    if(isLoggedIn) {
+	    	button=<LogoutButton onClick={this.handleLogoutClick()} />;
+	    }else{
+	    	button=<LoginButton onClick={this.handleLoginClick()}/>;
+	    }
 
 
-function Greeeting(props) {
+	    return(
+	    <div>
+		    <Greeting isLoggedIn={isLoggedIn}/>
+		    {button}
+	    </div>
+        );
+    }
+}
+
+
+
+function LoginButton(props){
+	return (
+		<button onClick={props.onClick}>
+			Log in now!
+		</button>
+	);
+}
+
+
+
+function LogoutButton(props){
+	return (
+		<button onClick={props.onClick}>Quit</button>
+	);
+}
+
+
+
+
+
+
+function Greeting(props) {
 	const isLoggedIn=props.isLoggedIn;
-	if(isLoggedIn) {
+	if(!isLoggedIn) {
 		return (
 			<UserGreeting/>
 		);
@@ -68,13 +124,13 @@ function ActionLink() {
 function App() {
 	return (
 		<div>
-			<Greeeting isLoggedIn={true}/>
+			<LoginControl/>
 		</div>
 	);
 }
 
 
-/*TODO Custom table*/
+/*Custom table*/
 /*class RandomTable extends React.Component{
     constructor(props){
         super(props);
