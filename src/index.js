@@ -6,10 +6,89 @@ import ReactDOM from 'react-dom';
 import './index.css';
 /*import Engine from './Engine'*/
 
+class FlavorForm extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {value: 'coconut'};
+
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
+	handleChange(event) {
+		this.setState({value: event.target.value});
+	}
+
+	handleSubmit(event) {
+		alert('Ваш любимый вкус: ' + this.state.value);
+		event.preventDefault();
+	}
+
+	render() {
+		return (
+			<form onSubmit={this.handleSubmit}>
+				<label>
+					Выберите ваш любимый вкус:
+					<select value={this.state.value} onChange={this.handleChange}>
+						<option value="grapefruit">Грейпфрут</option>
+						<option value="lime">Лайм</option>
+						<option value="coconut">Кокос</option>
+						<option value="mango">Манго</option>
+					</select>
+				</label>
+				<input type="submit" value="Отправить" />
+			</form>
+		);
+	}
+}
+
+
+class SFlavorForm extends React.Component{
+    constructor(props) {
+	    super (props);
+	    this.state = {value: 'vodka'};
+
+		this.handleChange = this.handleChange.bind (this);
+	    this.handleSubmit=this.handleSubmit.bind(this);
+
+    }
+
+	handleChange(event) {
+    	this.setState({value : event.target.value});
+	}
+
+	handleSubmit(event) {
+    	console.log('Your most preferable taste is ' + this.state.value);
+    	event.preventDefault();
+	}
+
+
+
+
+
+    render(){
+        return(
+	        <form onSubmit={this.handleSubmit}>
+	            <label>
+		        Choose your most preferable taste:
+		        <select value={this.state.value} onChange={this.handleChange}>
+			        <option value="grape">Grape</option>
+			        <option value="lime">Lime</option>
+			        <option value="cake">Cake</option>
+			        <option value="vodka">Vodka</option>
+	            </select>
+	            </label>
+		        <input type="submit" value="Send it"/>
+
+	        </form>
+        );
+    }
+}
+
 
 class GenericForm extends React.Component{
 
-	/*Controled component "One source of true" controlled component always represents STATE*/
+	//Controled component "One source of true" controlled component always represents STATE
 
     constructor(props){
         super(props);
@@ -69,7 +148,7 @@ class GenericForm extends React.Component{
 /**************************************/
 
 ReactDOM.render (
-	<GenericForm   />,
+	<SFlavorForm   />,
 	document.getElementById ('root'),
 );
 
