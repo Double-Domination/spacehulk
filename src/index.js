@@ -6,6 +6,57 @@ import ReactDOM from 'react-dom';
 import './index.css';
 /*import Engine from './Engine'*/
 
+
+function BoilingVerdict(props){
+	if(props.celsius >= 100) {
+		return (
+			<p>The water is boiling</p>
+		);
+	}
+	return (
+
+		<p>Not enough temperature fo boliling</p>
+	);
+}
+
+
+
+
+class BoilingCalculator extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={temperature:''};
+        this.handleChange=this.handleChange.bind(this);
+    }
+
+	handleChange(e){
+    	this.setState({
+    			    temperature:e.target.value,
+    		    });
+	}
+
+
+
+
+    render(){
+		const temperature = this.state.temperature;
+        return(
+        	<fieldset>
+		        <legend>Just enter temperature in celsiue degrees</legend>
+		        <input type="text"
+		               value={temperature}
+		               onChange={this.handleChange}
+		        />
+		        <BoilingVerdict
+		            celsius={parseFloat(temperature)}
+		        />
+	        </fieldset>
+	        
+        );
+    }
+}
+
+
 class Reservation extends React.Component {
 	constructor(props) {
 		super (props);
@@ -196,7 +247,8 @@ class GenericForm extends React.Component {
 /**************************************/
 
 ReactDOM.render (
-	<Reservation   />,
+	<BoilingCalculator/>,
+
 	document.getElementById ('root'),
 );
 
