@@ -7,20 +7,58 @@ import './index.css';
 /*import Engine from './Engine'*/
 
 
+class GenericForm extends React.Component{
+    constructor(props){
+        super(props);
 
-let pycharm=[];
-let gemcharm=[];
-let jscharm=[];
+    }
+    render(){
+        return(
+	        <form>
+		        <label>
+			        Name:
+			        <input type="text" name="nameFromForm"/>
+		        </label>
+		        <input type="submit" value="Send it"/>
+	        </form>
+        );
+    }
+}
 
 
-jscharm.map((mapArg) =>{
-        
-    } );
+
+
+/**************************************/
+
+ReactDOM.render (
+	<GenericForm/>,
+	document.getElementById ('root'),
+);
+
+/**************************************/
+
+
+
+/*
+
+const  posts=[
+	{id:1, title: ' Hi , nice to see you', content: 'Welcome to documentation'},
+	{id:1, title: ' Installing....', content: 'React can be installed by npm'},
+];
+
 
 
 const content=posts.map(
-	(post)=><Post key={post.id} id={post.id} title={post.id}/>
+	(curPost)=><Post key={curPost.id} id={curPost.id} title={curPost.id}/>
 );
+
+function Post(props){
+	return (
+		<div>
+		    <h3>{props.title}</h3>
+	    </div>
+	);
+}
 
 
 
@@ -53,10 +91,26 @@ function Blog(props){
 }
 
 
-const  posts=[
-	{id:1, title: ' Hi , nice to see you', content: 'Welcome to documentation'},
-	{id:1, title: ' Installing....', content: 'React can be installed by npm'},
-];
+
+
+
+const randomArray=[1,5,37,7,3,6,3,"hghsh", 6, 7,7];
+
+
+function NumberList(props) {
+	const numbers = props.numbers;
+	return (
+		<ul>
+			{numbers.map((curNumber) =>
+	             <ListItem
+		             key={curNumber.toString()}
+		             value={curNumber}
+	             />
+			)}
+		</ul>
+	);
+}
+
 
 
 
@@ -64,8 +118,9 @@ const  posts=[
 function ListItem(props) {
 	return <li>{props.value}</li>;
 }
+*/
 
-function NumberList(props) {
+/*function NumberList(props) {
 	const numbers = props.numbers;
 	const listItems = numbers.map ((number) =>
        <ListItem key={number.toString ()} value={number}/>,
@@ -75,7 +130,8 @@ function NumberList(props) {
 			{listItems}
 		</ul>
 	);
-}
+}*/
+/*
 
 const numbers = [
 	1,
@@ -84,9 +140,7 @@ const numbers = [
 	4,
 	5,
 ];
-ReactDOM.render (
-	<Blog posts={posts}/>,
-	document.getElementById ('root'),
-);
+*/
 
-/**************************************/
+
+
