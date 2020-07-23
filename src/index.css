@@ -87,4 +87,5 @@ tr:nth-child(even){
 
 .warning-banner{
     background-color: orange;
+    display: inline-block;
 }

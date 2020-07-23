@@ -14,36 +14,50 @@ class GenericForm extends React.Component{
     constructor(props){
         super(props);
         this.state={
-        	value:'',
-	        controlSequence:'Sanctic POWERS!'
+        	valueFromInput:'',
+        	valueTextarea:'',
+	        controlSequence:'Activate Hammerhand!'
         };
 		this.handleChange=this.handleChange.bind(this);
 		this.handleSubmit=this.handleSubmit.bind(this);
     }
 
     handleChange(event){
-    	this.setState({value: event.target.value});
+    	this.setState({
+		                  valueFromInput: event.target.value,
+		                  valueTextarea: event.target.value,
+        });
+
+    	console.log(event);
 
     }
 
     handleSubmit(event){
-    	alert('The name sent: ' + this.state.value);
+    	alert('The name sent: ' + this.state.valueTextarea);
     	event.preventDefault();
     }
 
 
     render(){
         return(
-	        <form onSubmit ={this.handleSubmit}>
+	        <form onSubmit ={this.handleSubmit}   className="warning-banner">
 		        <label>
 			        Name:
 			        <input
 				        type="text"
-				        value={this.state.value}
+				        value={this.state.valueFromInput}
 				        onChange={this.handleChange}
+
 			        />
 		        </label>
-		        <input type="submit" value={this.state.controlSequence}/>
+		            {<textarea
+			            value={this.state.valueTextarea}
+			            onChange={this.handleChange}
+		            />}
+		        <input
+			        type="submit" value={this.state.controlSequence}
+		        />
+
 	        </form>
         );
     }
