@@ -8,18 +8,42 @@ import './index.css';
 
 
 class GenericForm extends React.Component{
+
+	/*Controled component "One source of true" controlled component always represents STATE*/
+
     constructor(props){
         super(props);
+        this.state={
+        	value:'',
+	        controlSequence:'Sanctic POWERS!'
+        };
+		this.handleChange=this.handleChange.bind(this);
+		this.handleSubmit=this.handleSubmit.bind(this);
+    }
+
+    handleChange(event){
+    	this.setState({value: event.target.value});
 
     }
+
+    handleSubmit(event){
+    	alert('The name sent: ' + this.state.value);
+    	event.preventDefault();
+    }
+
+
     render(){
         return(
-	        <form>
+	        <form onSubmit ={this.handleSubmit}>
 		        <label>
 			        Name:
-			        <input type="text" name="nameFromForm"/>
+			        <input
+				        type="text"
+				        value={this.state.value}
+				        onChange={this.handleChange}
+			        />
 		        </label>
-		        <input type="submit" value="Send it"/>
+		        <input type="submit" value={this.state.controlSequence}/>
 	        </form>
         );
     }
@@ -31,7 +55,7 @@ class GenericForm extends React.Component{
 /**************************************/
 
 ReactDOM.render (
-	<GenericForm/>,
+	<GenericForm   />,
 	document.getElementById ('root'),
 );
 
