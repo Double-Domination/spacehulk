@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 /*import Engine from './Engine'*/
 
-
+/*********************************/
 function BoilingVerdict(props){
 	if(props.celsius >= 100) {
 		return (
@@ -21,28 +21,115 @@ function BoilingVerdict(props){
 
 
 
+const scaleNames={
+	c:'Celsius',
+	f:'Farenheit',
+};
 
-class BoilingCalculator extends React.Component{
+class Calculator extends React.Component{
+	constructor(props){
+		super(props);
+
+		this.state={
+			temperature:'',
+			scale:'c',
+		};
+
+		this.handleFarenheitChange=this.handleFarenheitChange.bind(this);
+		this.handleCelsiusChange=this.handleCelsiusChange.bind(this);
+	}
+
+	handleCelsiusChange(){
+		this.setState({
+			              temperature:temperature,
+			              scale:'c',
+			    });
+	}
+
+	handleFarenheitChange(){
+		this.setState({
+				    temperature:temperature,
+					scale:'f',
+			    });
+	}
+
+
+    render(){
+		const scale       = this.state.scale;
+		const temperature = this.state.temperature;
+		const celsius=scale==='f' ? tryConvert(temperature, toCelsius()) : temperature;
+		const farenheit=scale==='f' ? tryConvert(temperature, toFarenheit()) : temperature;
+        return(
+        	<div>
+		        <TemperatureInput
+			        scale="c"
+			        temperature={celsius}
+		            onTemperatureChange={this.handleCelsiusChange}
+		        />
+		        <TemperatureInput
+			        scale="f"
+			        temperature={farenheit}
+			        onTemperatureChange={this.handleFarenheitChange}
+		        />
+		        <BoilingVerdict
+			        celsius={parseFloat(celsius)}
+		        />
+
+	        </div>
+
+        );
+    }
+}
+
+
+function toCelsius(farenheit){
+	return (
+		(farenheit - 32) * 5 / 9
+	);
+}
+
+function toFarenheit(celsius){
+	return (
+		(celsius * 9 / 5) + 32
+	);
+}
+
+function tryConvert(teperature, convert){
+    const input = parseFloat(teperature);
+	if((Number.isNaN (input))) {
+		return (
+			''
+		);
+	}
+	
+	const output = convert(input);
+	const rounded = Math.round(output * 1000)/1000;
+	return (
+		rounded.toString ()
+	);
+}
+
+
+
+class TemperatureInput extends React.Component{
     constructor(props){
         super(props);
-        this.state={temperature:''};
         this.handleChange=this.handleChange.bind(this);
     }
 
 	handleChange(e){
-    	this.setState({
-    			    temperature:e.target.value,
-    		    });
+    	this.props.onTemperatureChange(e.target.value);
 	}
 
 
 
 
     render(){
-		const temperature = this.state.temperature;
+		const temperature = this.props.temperature;
+		const scale       = this.props.scale;
         return(
         	<fieldset>
-		        <legend>Just enter temperature in celsiue degrees</legend>
+		        <legend >Just enter temperature in <b>{scaleNames[scale]}</b> degrees</legend>
 		        <input type="text"
 		               value={temperature}
 		               onChange={this.handleChange}
@@ -247,7 +334,7 @@ class GenericForm extends React.Component {
 /**************************************/
 
 ReactDOM.render (
-	<BoilingCalculator/>,
+	<Calculator />,
 
 	document.getElementById ('root'),
 );
