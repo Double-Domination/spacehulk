@@ -20,7 +20,7 @@ class Reservation extends React.Component {
 
 	handleInputChange(event){
 		const target = event.target;
-		const value  =target.name==='isGoing' ? target.checked:target.value;
+		const value  =target.name==='isGoing' ? target.checked : target.value;
 		const name   = target.name;
 
 		this.setState({
@@ -35,7 +35,12 @@ class Reservation extends React.Component {
 			<form >
 				<label>
 					Im going to
-					<input type="checkbox" name="isGoing" checked={this.state.isGoing}/>
+					<input
+						type="checkbox"
+				         name="isGoing"
+						checked={this.state.isGoing}
+					    onChange={this.handleInputChange}
+					/>
 				</label>
 				<br/>
 				<label>
