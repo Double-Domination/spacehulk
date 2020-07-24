@@ -6,6 +6,130 @@ import ReactDOM from 'react-dom';
 import './index.css';
 /*import Engine from './Engine'*/
 
+//components as parameters
+
+class SignUpDialog extends React.Component{
+    constructor(props){
+        super(props);
+        this.handleChange=this.handleChange.bind(this);
+        this.handleSignUp=this.handleSignUp.bind(this);
+		this.state={login:''};
+
+    }
+
+    handleChange(e){
+    	this.setState({
+    			    login:e.target.value
+    		    });
+    }
+
+    handleSignUp(){
+    	alert(`Welcome to our Spaceship, ${this.state.login} !!`);
+    }
+
+    render(){
+        return(
+			<Dialog
+				title="Mars exploration programm"
+				message="How we can name you "
+			>
+				<input type="text"
+				       value={this.state.login}
+				       onChange={this.handleChange}
+				/>
+				<button onClick={this.handleSignUp}>
+					jjDominus
+				</button>
+
+			</Dialog>
+        );
+    }
+}
+
+
+
+
+function Dialog() {
+	return (
+		<FancyBorder color="blue">
+			<h1 className="Dialog-title">
+				{props.title}
+			</h1>
+			<p className="Dialog-message">
+				{props.message}
+			</p>
+			{props.children}
+		</FancyBorder>
+	);
+}
+
+function FancyBorder(props){
+	return (
+		<div className={'FancyBorder FancyBorder-' + props.color}>
+			{props.children}
+		</div>
+	);
+}
+
+
+function WelcomeDialog() {
+	return (
+		<Dialog
+			title="You are welcome!"
+		    message="Thanks for your visit"
+		/>
+	);
+}
+
+
+function SplitPane(props){
+	return (
+		<div className="SplitPane">
+			<div className="SplitPane-left">{props.left}</div>
+			<div className="SplitPane-right">{props.right}</div>
+		</div>
+	);
+}
+
+function Consolidate() {
+	return (
+		<SplitPane
+			left={
+				<Contacts/>
+			}
+		    right={
+		    	<Chat/>
+		    }
+		/>
+	);
+}
+
+function Contacts(props){
+	return (
+		<ul>
+			<li>Azariel</li>
+			<li>Bobcat</li>
+			<li>Archibael</li>
+		</ul>
+	);
+}
+
+function Chat(props) {
+	return (
+	<ul>
+		<li>messagge</li>
+		<li>another message</li>
+		<li>and so on..</li>
+		<li>and so fouth..</li>
+		<li>Lorem ipsum dolor.</li>
+	</ul>
+	);
+
+}
+
+
+
+
 /*********************************/
 function BoilingVerdict(props){
 	if(props.celsius >= 100) {
@@ -66,6 +190,8 @@ class Calculator extends React.Component {
 	}
 }
 
+
+/*prop.onChange=> handlerInParentClass //event bubbling*/
 
 function toCelsius(farenheit){
 	return (
@@ -319,8 +445,7 @@ class GenericForm extends React.Component {
 /**************************************/
 
 ReactDOM.render (
-	<Calculator />,
-
+	<SignUpDialog/>,
 	document.getElementById ('root'),
 );
 
