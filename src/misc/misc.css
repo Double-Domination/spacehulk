@@ -1,0 +1,102 @@
+.status {
+    margin-bottom: 10px;
+}
+
+.square {
+    background: #fff;
+    border: 2px solid #999;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+    height: 34px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 34px;
+}
+
+.square:focus {
+    outline: none;
+}
+
+.kbd-navigation .square:focus {
+    background: #ddd;
+}
+
+.game {
+    display: flex;
+    flex-direction: row;
+    border: 2px solid red;
+}
+
+.game-info {
+    margin-left: 20px;
+}
+
+.winner{
+    border-color: crimson;
+}
+
+.horizontal-divider{
+    display: block;
+    content: "";
+    clear: both;
+    width: 100%;
+    background-color: green;
+}
+
+.Comment{
+    border: 2px dashed green;
+    padding: 5px;
+}
+
+/*Table Styling*/
+
+table{
+    font-family: Arial,sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th{
+    border: 2px solid #abcdef;
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even){
+    background-color: #999999;
+}
+
+.warning-banner{
+    background-color: orange;
+    display: inline-block;
+}
+
+.SplitPane{
+    border: 2px solid crimson;
+    display: table;
+    clear: both;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.SplitPane-left{
+    border: 2px solid orange;
+    margin: 10px;
+    display: table-cell;
+    float: left;
+    width: 40%;
+    box-sizing: border-box;
+}
+
+.SplitPane-right{
+    border: 2px solid darkolivegreen;
+    margin: 10px;
+    display: table-cell;
+    float: right;
+    width: 50%;
+    box-sizing: border-box;
+}

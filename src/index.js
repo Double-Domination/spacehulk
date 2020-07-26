@@ -4,557 +4,156 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-/*import Engine from './Engine'*/
 
-//components as parameters
 
-class SignUpDialog extends React.Component{
+const PRODUCTS=[
+	{category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football"},
+	{category: "Sporting Goods", price: "$9.99", stocked: true, name: "Baseball"},
+	{category: "Sporting Goods", price: "$29.99", stocked: false, name: "Basketball"},
+	{category: "Electronics", price: "$99.99", stocked: true, name: "iPod Touch"},
+	{category: "Electronics", price: "$399.99", stocked: false, name: "iPhone 5"},
+	{category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7"}
+];
+
+
+/*
+* SearchCard
+* SearchBar
+* ResultBar
+* SubcategorySearchResult
+* SearchProductResult
+*
+* FilterableProductTable
+*   SarchBar
+*   ProductTable
+*       ProductCategoryRow
+*       ProductRow
+* */
+
+
+class ProductCategoryRow extends React.Component{
     constructor(props){
         super(props);
-        this.handleChange=this.handleChange.bind(this);
-        this.handleSignUp=this.handleSignUp.bind(this);
-		this.state={login:''};
 
     }
-
-    handleChange(e){
-    	this.setState({
-    			    login:e.target.value
-    		    });
-    }
-
-    handleSignUp(){
-    	alert(`Welcome to our Spaceship, ${this.state.login} !!`);
-    }
-
     render(){
+    	const category = this.props.category;
         return(
-			<Dialog
-				title="Mars exploration programm"
-				message="How we can name you "
-			>
-				<input type="text"
-				       value={this.state.login}
-				       onChange={this.handleChange}
-				/>
-				<button onClick={this.handleSignUp}>
-					jjDominus
-				</button>
-
-			</Dialog>
+	        <tr>
+				<th colSpan="2">
+					{category}
+				</th>
+			</tr>
         );
     }
 }
 
+class ProductRow extends React.Component{
+    constructor(props){
+        super(props);
 
-
-
-function Dialog() {
-	return (
-		<FancyBorder color="blue">
-			<h1 className="Dialog-title">
-				{props.title}
-			</h1>
-			<p className="Dialog-message">
-				{props.message}
-			</p>
-			{props.children}
-		</FancyBorder>
-	);
+    }
+    render(){
+    	const product = this.props.product;
+    	const productName= product.stocked ? product.name:
+		    <span style={{color:'red'}}>
+		        {product.name}
+		    </span>;
+        return(
+	        <tr>
+            	<td>{productName}</td>
+            	<td>{product.price}</td>
+            	</tr>
+        );
+    }
 }
 
-function FancyBorder(props){
-	return (
-		<div className={'FancyBorder FancyBorder-' + props.color}>
-			{props.children}
-		</div>
-	);
-}
-
-
-function WelcomeDialog() {
-	return (
-		<Dialog
-			title="You are welcome!"
-		    message="Thanks for your visit"
-		/>
-	);
-}
-
-
-function SplitPane(props){
-	return (
-		<div className="SplitPane">
-			<div className="SplitPane-left">{props.left}</div>
-			<div className="SplitPane-right">{props.right}</div>
-		</div>
-	);
-}
-
-function Consolidate() {
-	return (
-		<SplitPane
-			left={
-				<Contacts/>
-			}
-		    right={
-		    	<Chat/>
+class ProductTable extends React.Component{
+    constructor(props){
+        super(props);
+        
+    }
+    render(){
+    	const rows = [];
+    	let lastCategory = null;
+    	
+    	this.props.products.forEach((product) =>{
+		    if(product.category !== lastCategory) {
+		    	rows.push(
+		    		<ProductCategoryRow
+					    category={product.category}
+				        key={product.category}
+				    />
+			    );
 		    }
-		/>
-	);
-}
+		    rows.push(
+		    	<ProductRow
+				    product={product}
+			        key={product.name}
+			    />
+		    );
 
-function Contacts(props){
-	return (
-		<ul>
-			<li>Azariel</li>
-			<li>Bobcat</li>
-			<li>Archibael</li>
-		</ul>
-	);
-}
-
-function Chat(props) {
-	return (
-	<ul>
-		<li>messagge</li>
-		<li>another message</li>
-		<li>and so on..</li>
-		<li>and so fouth..</li>
-		<li>Lorem ipsum dolor.</li>
-	</ul>
-	);
-
-}
-
-
-
-
-/*********************************/
-function BoilingVerdict(props){
-	if(props.celsius >= 100) {
-		return (
-			<p>The water is boiling</p>
-		);
-	}
-	return (
-
-		<p>Not enough temperature fo boliling</p>
-	);
-}
-
-
-
-const scaleNames={
-	c:'Celsius',
-	f:'Farenheit',
-};
-
-
-class Calculator extends React.Component {
-	constructor(props) {
-		super(props);
-		this.handleCelsiusChange = this.handleCelsiusChange.bind(this);
-		this.handleFahrenheitChange = this.handleFahrenheitChange.bind(this);
-		this.state = {temperature: '', scale: 'c'};
-	}
-
-	handleCelsiusChange(temperature) {
-		this.setState({scale: 'c', temperature});
-	}
-
-	handleFahrenheitChange(temperature) {
-		this.setState({scale: 'f', temperature});
-	}
-
-	render() {
-		const scale = this.state.scale;
-		const temperature = this.state.temperature;
-		const celsius = scale === 'f' ? tryConvert(temperature, toCelsius) : temperature;
-		const fahrenheit = scale === 'c' ? tryConvert(temperature, toFarenheit) : temperature;
-
-		return (
-			<div>
-        <TemperatureInput
-	        scale="c"
-	        temperature={celsius}
-	        onTemperatureChange={this.handleCelsiusChange} />
-        <TemperatureInput
-	        scale="f"
-	        temperature={fahrenheit}
-	        onTemperatureChange={this.handleFahrenheitChange} />
-        <BoilingVerdict
-	        celsius={parseFloat(celsius)} />
-      </div>
-		);
-	}
-}
-
-
-/*prop.onChange=> handlerInParentClass //event bubbling*/
-
-function toCelsius(farenheit){
-	return (
-		(farenheit - 32) * 5 / 9
-	);
-}
-
-function toFarenheit(celsius){
-	return (
-		(celsius * 9 / 5) + 32
-	);
-}
-
-function tryConvert(teperature, convert){
-    const input = parseFloat(teperature);
-	if((Number.isNaN (input))) {
-		return (
-			''
-		);
-	}
-	
-	const output = convert(input);
-	const rounded = Math.round(output * 1000)/1000;
-	return (
-		rounded.toString ()
-	);
-}
-
-
-
-class TemperatureInput extends React.Component{
-    constructor(props){
-        super(props);
-        this.handleChange=this.handleChange.bind(this);
-    }
-
-	handleChange(e){
-    	this.props.onTemperatureChange(e.target.value);
-	}
-
-
-
-
-    render(){
-		const temperature = this.props.temperature;
-		const scale       = this.props.scale;
+		    lastCategory=product.category;
+	    } );
+    	
         return(
-        	<fieldset>
-		        <legend >Just enter temperature in <b>{scaleNames[scale]}</b> degrees</legend>
-		        <input type="text"
-		               value={temperature}
-		               onChange={this.handleChange}
-		        />
-		        <BoilingVerdict
-		            celsius={parseFloat(temperature)}
-		        />
-	        </fieldset>
-	        
+	        <table>
+		        <thead>
+		            <tr>
+            	        <th>Name</th>
+            	        <th>Price</th>
+            	    </tr>
+		        </thead>
+		        <tbody>{rows}</tbody>
+	        </table>
         );
     }
 }
 
 
-class Reservation extends React.Component {
-	constructor(props) {
-		super (props);
-		this.state=({
-			            isGoing: true,
-			            numberOfGuests: 2,
-		            });
+class SearchBar extends React.Component{
+    constructor(props){
+        super(props);
 
-		this.handleInputChange=this.handleInputChange.bind(this);
+    }
+    render(){
+        return(
+	        <form>
+		        <input
+			        type="text"
+                    palceholder="Search......"
+                />
+            	<p>
+		            <input type="checkbox"
 
-	}
-
-	handleInputChange(event){
-		const target = event.target;
-		const value  =target.name==='isGoing' ? target.checked : target.value;
-		const name   = target.name;
-
-		this.setState({
-				    [name]:value,
-			    });
-
-	}
-
-
-	render() {
-		return (
-			<form >
-				<label>
-					Im going to
-					<input
-						type="checkbox"
-				         name="isGoing"
-						checked={this.state.isGoing}
-					    onChange={this.handleInputChange}
-					/>
-				</label>
-				<br/>
-				<label>
-					Number of Guests
-					<input
-						type="number"
-						name="numberOfGuests"
-						value={this.state.numberOfGuests}
-					    onChange={this.handleInputChange}
-					/>
-				</label>
-			</form>
-		);
-	}
+                    />
+		            {' '}
+		            Only show products in stock
+	            </p>
+            </form>
+        );
+    }
 }
 
 
-class FlavorForm extends React.Component {
-	constructor(props) {
-		super (props);
-		this.state = {value: 'coconut'};
+class FilterableProductTable extends React.Component{
+    constructor(props){
+        super(props);
 
-		this.handleChange = this.handleChange.bind (this);
-		this.handleSubmit = this.handleSubmit.bind (this);
-	}
-
-	handleChange(event) {
-		this.setState ({value: event.target.value});
-	}
-
-	handleSubmit(event) {
-		alert ('Ваш любимый вкус: ' + this.state.value);
-		event.preventDefault ();
-	}
-
-	render() {
-		return (
-			<form onSubmit={this.handleSubmit}>
-				<label>
-					Выберите ваш любимый вкус:
-					<select value={this.state.value} onChange={this.handleChange}>
-						<option value="grapefruit">Грейпфрут</option>
-						<option value="lime">Лайм</option>
-						<option value="coconut">Кокос</option>
-						<option value="mango">Манго</option>
-					</select>
-				</label>
-				<input type="submit" value="Отправить"/>
-			</form>
-		);
-	}
+    }
+    render(){
+        return(
+	        <div>
+		        <SearchBar/>
+		        <ProductTable
+		            products={this.props.products}
+		        />
+	        </div>
+        );
+    }
 }
 
-
-class SFlavorForm extends React.Component {
-	constructor(props) {
-		super (props);
-		this.state = {value: 'vodka'};
-
-		this.handleChange = this.handleChange.bind (this);
-		this.handleSubmit = this.handleSubmit.bind (this);
-
-	}
-
-	handleChange(event) {
-		this.setState ({value: event.target.value});
-	}
-
-	handleSubmit(event) {
-		console.log ('Your most preferable taste is ' + this.state.value);
-		event.preventDefault ();
-	}
-
-
-	render() {
-		return (
-			<form onSubmit={this.handleSubmit}>
-				<label>
-					Choose your most preferable taste:
-					<select value={this.state.value} onChange={this.handleChange}>
-						<option value="grape">Grape</option>
-						<option value="lime">Lime</option>
-						<option value="cake">Cake</option>
-						<option value="vodka">Vodka</option>
-					</select>
-					<input type="file"/>
-				</label>
-				<input type="submit" value="Send it"/>
-
-			</form>
-		);
-	}
-}
-
-
-class GenericForm extends React.Component {
-
-	//Controled component "One source of true" controlled component always represents STATE
-
-	constructor(props) {
-		super (props);
-		this.state        = {
-			valueFromInput: '',
-			valueTextarea: '',
-			controlSequence: 'Activate Hammerhand!',
-		};
-		this.handleChange = this.handleChange.bind (this);
-		this.handleSubmit = this.handleSubmit.bind (this);
-	}
-
-	handleChange(event) {
-		this.setState ({
-			               valueFromInput: event.target.value,
-			               valueTextarea: event.target.value,
-		               });
-
-		console.log (event);
-
-	}
-
-	handleSubmit(event) {
-		alert ('The name sent: ' + this.state.valueTextarea);
-		event.preventDefault ();
-	}
-
-
-	render() {
-		return (
-			<form onSubmit={this.handleSubmit} className="warning-banner">
-				<label>
-					Name:
-					<input
-						type="text"
-						value={this.state.valueFromInput}
-						onChange={this.handleChange}
-
-					/>
-				</label>
-				{<textarea
-					value={this.state.valueTextarea}
-					onChange={this.handleChange}
-				/>}
-				<input
-					type="submit" value={this.state.controlSequence}
-				/>
-
-			</form>
-		);
-	}
-}
-
-
-/**************************************/
-
-ReactDOM.render (
-	<SignUpDialog/>,
-	document.getElementById ('root'),
+ReactDOM.render(
+	<FilterableProductTable products={PRODUCTS}/>,
+	document.getElementById('root')
 );
-
-/**************************************/
-
-
-
-/*
-
- const  posts=[
- {id:1, title: ' Hi , nice to see you', content: 'Welcome to documentation'},
- {id:1, title: ' Installing....', content: 'React can be installed by npm'},
- ];
-
-
-
- const content=posts.map(
- (curPost)=><Post key={curPost.id} id={curPost.id} title={curPost.id}/>
- );
-
- function Post(props){
- return (
- <div>
- <h3>{props.title}</h3>
- </div>
- );
- }
-
-
-
- function Blog(props){
- const sidebar=(
- <ul>
- {
- props.posts.map((post)=>
- <li key={post.id}>{post.title}</li>
- )
- }
- </ul>
- );
-
- const content=props.posts.map(
- (post)=>
- <div key={post.id}>
- <h3>{post.title}</h3>
- <p>{post.content}</p>
- </div>
- );
-
- return (
- <div>
- {sidebar}
- <hr/>
- {content}
- </div>
- );
- }
-
-
-
-
-
- const randomArray=[1,5,37,7,3,6,3,"hghsh", 6, 7,7];
-
-
- function NumberList(props) {
- const numbers = props.numbers;
- return (
- <ul>
- {numbers.map((curNumber) =>
- <ListItem
- key={curNumber.toString()}
- value={curNumber}
- />
- )}
- </ul>
- );
- }
-
-
-
-
-
- function ListItem(props) {
- return <li>{props.value}</li>;
- }
- */
-
-/*function NumberList(props) {
- const numbers = props.numbers;
- const listItems = numbers.map ((number) =>
- <ListItem key={number.toString ()} value={number}/>,
- );
- return (
- <ul>
- {listItems}
- </ul>
- );
- }*/
-/*
-
- const numbers = [
- 1,
- 2,
- 3,
- 4,
- 5,
- ];
- */
-
-
-
