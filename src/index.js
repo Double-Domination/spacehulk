@@ -4,21 +4,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import App from './terminator-roster'
 
 
 
-function Main(){
-	return (
-		<div>
-			<h1>Whats going on here</h1>
-		</div>
-	);
-}
+
+
 
 
 
 
 ReactDOM.render(
-	<Main/>,
+	<App/>,
 	document.getElementById('root')
 );
