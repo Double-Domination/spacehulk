@@ -23,7 +23,28 @@ ol, ul {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 5px;
-    background-color: darkgreen;
+    background-color: red;
     color: #FFFFFF;
 }
 
+.standard-unit-card{
+    display: inline-block;
+    overflow:hidden;
+    box-sizing: border-box;
+    background-color: #c0c0c0;
+    border: solid 2px darkgray;
+}
+
+
+.unit-card-header{
+    display: inline-block;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    box-sizing: border-box;
+    background-color: #2A3531;
+    color: white;
+    margin: 0;
+    padding: 20px;
+    width: 100%;
+}

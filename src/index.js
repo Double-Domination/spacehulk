@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './terminator-roster'
+import UnitCard from './unit-card'
 
 
 
@@ -15,6 +15,6 @@ import App from './terminator-roster'
 
 
 ReactDOM.render(
-	<App/>,
+	<UnitCard unitCardTitle='DW Terminators'/>,
 	document.getElementById('root')
 );
