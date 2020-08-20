@@ -19,12 +19,7 @@ const unitCardStats=function (unitCard){
 };
 
 
-function decomposedList(obj)=>{
 
-	return (
-		<li>{key}______{value}</li>
-	);
-};
 
 
 
@@ -35,7 +30,7 @@ const simplyNumbers=[1,3,4,5,6,1,4];
 
 
 
-const randomJSON = [
+const list = [
 	{
 		title:'React',
 		url:'https://reactjs.org',
@@ -54,18 +49,41 @@ const randomJSON = [
 	}
 ];
 
-const deathWingTerminatorSergeant={
-	W: 2,
-	BS:3,
-	WS:3,
-	Sv:2,
-	M:5,
-	Ld:9,
-	S:4,
-	T:4,
-	InvSv:5,
-	A:3,
-};
+function List(){
+	return (
+		list.map(function (item){
+			return (
+				<div key ={item.objectID}>
+				        <span>
+					        <a href={item.url}>
+						        {item.title}
+					        </a>
+				        </span>
+				        <span>{item.author}</span>
+				        <span>{item.num_comments}</span>
+				        <span>{item.points}</span>
+			        </div>
+			);
+		})
+	);
+
+}
+
+const deathWingTerminatorSergeant= {
+	      W: 2,
+	      BS: 3,
+	      WS: 3,
+	      Sv: 2,
+	      M: 5,
+	      Ld: 9,
+	      S: 4,
+	      T: 4,
+	      InvSv: 5,
+	      A: 3,
+      };
+
+
+
 
 
 class UnitCard extends React.Component{
@@ -86,7 +104,7 @@ class UnitCard extends React.Component{
 		        <h1 className='unit-card-header'>{this.props.unitCardTitle}</h1>
 
 		        <ol>
-			        {decomposedList(deathWingTerminatorSergeant)}
+			        <List/>
                 </ol>
 
 		        <label htmlFor="wargearSearch">
