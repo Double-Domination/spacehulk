@@ -8,27 +8,27 @@ import deathwingPlasma from './assets/deathwing-plasma.jpg';
 import deathwingSergeant from './assets/deatwing-sergeant.jpg';
 
 
+class Developer{
+	constructor(firstName, lastName, devProficiency){
+		this.firstName=firstName;
+		this.lastName=lastName;
+		this.devProficiency=devProficiency;
+	}
+	getDevStats(){
+		return (
+			console.log(this.firstName +' '+ this.lastName+' '+ this.devProficiency)
+
+		);
+	}
+}
+
+const devPetrov=new Developer('Slava', 'Petrov', 'Java');
+const devSlava=new Developer('Slava', 'Slavov', 'C plus plus');
+devPetrov.getDevStats();
+devSlava.getDevStats();
 
 
-
-const unitCardStats=function (unitCard){
-
-	unitCard.forEach(()=>{
-		return <li>:  {1} mapIndex: {2}</li>
-	});
-};
-
-
-
-
-
-
-
-
-const simplyNumbers=[1,3,4,5,6,1,4];
-
-
-
+//Page 25 Road to React
 
 const list = [
 	{
@@ -49,7 +49,7 @@ const list = [
 	}
 ];
 
-function List(){
+const  List=()=>{
 	return (
 		list.map(function (item){
 			return (
@@ -86,22 +86,14 @@ const deathWingTerminatorSergeant= {
 
 
 
-class UnitCard extends React.Component{
-    constructor(props){
-        super(props);
-		this.state={
-
-		}
-
-    }
 
 
-    render(){
+    const UnitCard=(props)=>{
         return(
         	<div
 		        className="standard-unit-card"
 	        >
-		        <h1 className='unit-card-header'>{this.props.unitCardTitle}</h1>
+		        <h1 className='unit-card-header'>{props.unitCardTitle}</h1>
 
 		        <ol>
 			        <List/>
@@ -113,7 +105,8 @@ class UnitCard extends React.Component{
 		        <input id="wargearSearch" type="text"/>
 	        </div>
         );
-    }
-}
+    };
+
 
 export default UnitCard;
+/*Page 27 Advanced component definition*/
