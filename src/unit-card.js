@@ -46,7 +46,15 @@ const stories = [
 		num_comments:2,
 		points:5,
 		objectID:1,
-	}
+	},
+	{
+		title:'Formik',
+		url:'https://formic.org',
+		author:'Warios autors',
+		num_comments:2,
+		points:4,
+		objectID:2,
+	},
 ];
 
 
@@ -72,22 +80,26 @@ const deathWingTerminatorSergeant= {
 
 const UnitCard=(props)=>{
 	const handleReliquariumChange=(event)=>{
-		setSearchTerm(event.target.value);
+		/*setSearchTerm(event.target.value);*/
 	};
 
+/*
+ const searchTermState=useState('');
+ const serchTerm = searchTermState[0];
+ const setSerchTerm= serchTermStrate[1];
 
-	const searchTermState=useState('');
-	const serchTerm = searchTermState[0];
-	const setSerchTerm= serchTermStrate[1];
+ const [searchTerm, setSearchTerm]=React.useState('');
+* */
 
-	const [searchTerm, setSearchTerm]=React.useState('');
 
 
     return(
         <div
 	        className="standard-unit-card"
         >
-	        <h1 className='unit-card-header'>{props.unitCardTitle}</h1>
+	        <h1 className='unit-card-header'>
+		        {props.unitCardTitle}
+	        </h1>
 
 	        <ol>
 		        <List list={stories}/>
@@ -103,7 +115,7 @@ const UnitCard=(props)=>{
 	        />
 
 	        <p>
-		        Searching for <strong>{searchTerm}</strong>
+		        Searching for <strong>-=relic=-</strong>
 	        </p>
 
 
