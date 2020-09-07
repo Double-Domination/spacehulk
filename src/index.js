@@ -3,8 +3,9 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import CSSRampage from './CSSRampage';
 import './index.css';
-import UnitCard from './unit-card'
+
 
 
 
@@ -15,6 +16,10 @@ import UnitCard from './unit-card'
 
 
 ReactDOM.render(
-	<UnitCard unitCardTitle='DW Terminators'/>,
+	<CSSRampage/>,
 	document.getElementById('root')
 );
+
+/*
+ <UnitCard unitCardTitle='DW Terminators'/>
+*/

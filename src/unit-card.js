@@ -8,6 +8,8 @@ import deathwingPlasma from './assets/deathwing-plasma.jpg';
 import deathwingSergeant from './assets/deatwing-sergeant.jpg';
 
 
+
+document.title='Deathwing unit card';
 class Developer{
 	constructor(firstName, lastName, devProficiency){
 		this.firstName=firstName;
@@ -16,16 +18,30 @@ class Developer{
 	}
 	getDevStats(){
 		return (
-			console.log(this.firstName +' '+ this.lastName+' '+ this.devProficiency)
+			console.log(this.firstName +
+			            ' '+ this.lastName+
+			            ' '+ this.devProficiency
+			)
 
 		);
 	}
 }
 
-const devPetrov=new Developer('Slava', 'Petrov', 'Java');
-const devSlava=new Developer('Slava', 'Slavov', 'C plus plus');
+let devPetrov=new Developer('Slava', 'Petrov', 'Java');
+let devSlava=new Developer('Slava', 'Slavov', 'C plus plus');
+
+devSlava=devPetrov;
+
+devSlava.devProficiency="Turbochargers";
 devPetrov.getDevStats();
 devSlava.getDevStats();
+
+devPetrov.devProficiency="superchargers";
+devPetrov.getDevStats();
+devSlava.getDevStats();
+
+
+
 
 
 //Page 25 Road to React
@@ -79,6 +95,7 @@ const deathWingTerminatorSergeant= {
 
 
 const UnitCard=(props)=>{
+	/*onClick Handler*/
 	const handleReliquariumChange=(event)=>{
 		/*setSearchTerm(event.target.value);*/
 	};
@@ -95,8 +112,7 @@ const UnitCard=(props)=>{
 
     return(
         <div
-	        className="standard-unit-card"
-        >
+	        className="standard-unit-card">
 	        <h1 className='unit-card-header'>
 		        {props.unitCardTitle}
 	        </h1>
@@ -105,7 +121,7 @@ const UnitCard=(props)=>{
 		        <List list={stories}/>
             </ol>
 
-	        <label htmlFor="wargearSearch">
+	        <label htmlFor="wargearSearch" style={{color:'red'}}>
 		        Search wargear in reliquarium
 	        </label>
 	        <input

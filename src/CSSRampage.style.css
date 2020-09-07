@@ -1,0 +1,40 @@
+.O-blackrage{
+    background-color: tomato;
+    border: dashed 2px ;
+    border-radius: 3px;
+}
+
+.A-blackrageImg{
+    width: 30%;
+    height: 30%;
+    border-radius: 100%;
+
+
+}
+
+
+
+.A-blackrageChapter{
+    color: turquoise;
+}
+
+.O-aside{
+    height: 100%;
+    content: "";
+    border: slategray solid 2px;
+}
+
+.O-footer{
+    background-color: silver;
+}
+
+.M-footerNav{
+    text-decoration: underline;
+    color: tomato;
+    font-weight: 800;
+}
+
+.A-blackrageQuote{
+    font-weight: 900;
+    font-style: italic;
+}
