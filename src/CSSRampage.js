@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom';
 
 
 document.title = 'CSS Manual TurboCharge';
+const colorQuickSlver='violet';
 function CSSRampage() {
 	return (
 		<>
@@ -47,14 +48,19 @@ function CSSRampage() {
 		<footer className="O-footer">
 			<nav className="M-footerNav">
 				<ul>
-					<li>home</li>
+					<li style={{color:colorQuickSlver, fontSize:'1,5em'}}>-=home=-</li>
 					<li>about</li>
 					</ul>
 			</nav>
 		</footer>
+		<link href='http://fonts.googleapis.com/css?family=Varela+Round'
+		      rel='stylesheet'/>
 		</>
 	);
 }
+
+/*Page 22*/
+
 
 
 export default CSSRampage;
