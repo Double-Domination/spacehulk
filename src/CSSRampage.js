@@ -33,9 +33,14 @@ function CSSRampage() {
 				<img className="A-blackrageImg"
 			     src={deathCompanyDreadnout}
 			     alt="DCDreadnout"/>
-				<figcaption>Mighty Death Compant Dreadnout</figcaption>
+				<figcaption><h2>Mighty Death Compant Dreadnout</h2></figcaption>
 			</figure>
 			<h1>The Black Rage</h1>
+			<p className="intro">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit
+				. Deleniti distinctio eius harum porro qui
+				recusandae reiciendis tenetur unde velit voluptatum!
+			</p>
 			<p>There is explanation of blackrage in
 				<span className="A-blackrageChapter">
 					BloodAngels Chapters
@@ -49,7 +54,7 @@ function CSSRampage() {
 			<nav className="M-footerNav">
 				<ul>
 					<li style={{color:colorQuickSlver, fontSize:'1,5em'}}>-=home=-</li>
-					<li>about</li>
+					<li><address>about</address></li>
 					</ul>
 			</nav>
 		</footer>
