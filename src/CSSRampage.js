@@ -50,6 +50,13 @@ function CSSRampage() {
 			<p><q className="A-blackrageQuote">Even in death we still serve</q> Caplain Barbatos</p>
 		</header>
 
+		<body className="special">
+			<span>gg</span>
+			<span>YYYYY</span>
+			<span>TR</span>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nostrum.
+		</body>
+
 		<footer className="O-footer">
 			<nav className="M-footerNav">
 				<ul>
@@ -65,6 +72,10 @@ function CSSRampage() {
 }
 
 /*Page 22*/
+/*Page 41*/
+/*Type Selectors*/
+/*Type 67 PseudoSelectors*/
+
 
 
 

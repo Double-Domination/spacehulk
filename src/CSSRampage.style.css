@@ -50,7 +50,7 @@ h1{
 
 h2{
     color: #81967c;
-    font-family: 'Varela Round', 'Arial Black', Serif;
+    font-family: 'Century Gothic', 'Gill Sans Ultra Bold', Serif;
     font-weight: normal;
     font-size: 2.2em;
     border-bottom: 2px white solid;
@@ -94,3 +94,13 @@ body{
     background-color: #550001;
 
 }
+
+.special *:hover {
+    border-right: springgreen double 10px;
+    color: #FFFFFF;
+    background-color: #993366;
+}
+
+h1,h2,h3,h4{
+
+    color: #F1CD33;}
