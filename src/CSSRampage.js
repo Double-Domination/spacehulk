@@ -75,6 +75,7 @@ function CSSRampage() {
 /*Page 41*/
 /*Type Selectors*/
 /*Type 67 PseudoSelectors*/
+/*85 style inheritance*/
 
 
 
