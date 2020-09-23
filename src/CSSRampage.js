@@ -109,6 +109,7 @@ function CSSRampage() {
 /*Type 67 PseudoSelectors*/
 /*85 style inheritance*/
 /*91 - 115 style inheritance*/
+/*98 - 122 Inheritrd Styles Accamulation*/
 
 
 export default CSSRampage;

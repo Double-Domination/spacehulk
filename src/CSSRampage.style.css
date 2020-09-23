@@ -74,6 +74,8 @@ p, address{
     line-height: 150%;
     margin-top: 10px;
     margin-left: 60px;
+    padding-left: 20px;
+    border-left: solid 25px rgba(255, 255, 255, .5);
     color: rgb(92, 122, 1);
 
 }
@@ -110,4 +112,5 @@ h1,h2,h3,h4{
     color: rgb(194, 91, 11);
     max-width: 900px;
     margin:  0 auto;
+    text-decoration: underline;
 }
