@@ -71,10 +71,10 @@ h2{
 p, address{
     font-family: 'Palatino Linotype', Baskerville, Serif;
     font-size: 1.25em;
-    color: #616161;
     line-height: 150%;
     margin-top: 10px;
     margin-left: 60px;
+    color: rgb(92, 122, 1);
 
 }
 
@@ -95,12 +95,19 @@ body{
 
 }
 
-.special *:hover {
+.special {
     border-right: springgreen double 10px;
     color: #FFFFFF;
-    background-color: #993366;
+    background-color: #550001;
 }
 
 h1,h2,h3,h4{
 
     color: #F1CD33;}
+
+.inheritor {
+    font-size: 18px;
+    color: rgb(194, 91, 11);
+    max-width: 900px;
+    margin:  0 auto;
+}
