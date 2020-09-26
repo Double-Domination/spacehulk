@@ -1,10 +1,13 @@
 /**
  * Created by Админ on 9/6/2020.
+ *
+ * Main entry point
  */
 import React from 'react';
 import './CSSRampage.style.css';
 import deathCompanyDreadnout from './assets/death-company-dreadnout.jpg';
 import ReactDOM from 'react-dom';
+
 
 
 document.title        = 'CSS Manual TurboCharge';
