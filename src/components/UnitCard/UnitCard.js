@@ -8,20 +8,13 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styled, {ThemeProvider} from 'styled-jss'
+import styled from 'styled-jss'
 
 
 
 
 document.title        = 'CSS Manual TurboCharge';
 function UnitCard() {
-	const view={
-		greenBordered:{
-			border: 'double indigo 7px',
-			padding: '40px',
-		},
-	};
-
 	const Card=styled('button')({
 		backgroundColor: 'red',
 		color: 'black',
@@ -32,7 +25,7 @@ function UnitCard() {
 
 
 	return (
-		<Card className={view.greenBordered}>YYYYY</Card>
+		<Card><h2>YYYYY</h2></Card>
 	);
 }
 
@@ -43,6 +36,9 @@ function UnitCard() {
 /*85 style inheritance*/
 /*91 - 115 style inheritance*/
 /*98 - 122 Inheritrd Styles Accamulation*/
+/*111-135 Cascade in ACTION*/
+/*116-140 Cascade in ACTION*/
+
 
 
 export default UnitCard;
