@@ -6,26 +6,33 @@
  *
  * Unit Card
  */
-import React from 'react';
-import ReactDOM from 'react-dom';
-import styled from 'styled-jss'
+import React from "react";
+import ReactDOM from "react-dom";
+import styled from "styled-jss";
 
-
-
-
-document.title        = 'CSS Manual TurboCharge';
+document.title = "CSS Manual TurboCharge";
 function UnitCard() {
-	const Card=styled('button')({
-		backgroundColor: 'red',
-		color: 'black',
-		borderRadius:'20px',
-		textDecoration:'underline'
-    });
+	const Green = styled("button")({
+		padding: "15px",
+		margin: "40px",
+		backgroundColor: "green",
+		fontWeight: 900,
+		textDecoration: "underline",
+		borderRadius: "15px",
+	});
 
-
+	const Red = styled("button")({
+		backgroundColor: "red",
+		color: "black",
+		borderRadius: "20px",
+		textDecoration: "underline",
+	});
 
 	return (
-		<Card><h2>YYYYY</h2></Card>
+		<>
+			<Red>HHHHHHHHH</Red>
+			<Green>fffffffffff</Green>
+		</>
 	);
 }
 
@@ -38,7 +45,6 @@ function UnitCard() {
 /*98 - 122 Inheritrd Styles Accamulation*/
 /*111-135 Cascade in ACTION*/
 /*116-140 Cascade in ACTION*/
-
-
+/*116-140 Fonts Applied Google Fonts*/
 
 export default UnitCard;
