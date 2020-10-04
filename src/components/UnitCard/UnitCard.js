@@ -41,23 +41,21 @@ function UnitCard() {
 	});
 
 	return (
-		<>
-			<Container>
-				<Red>D0ubleD0m1nation</Red>
-				<Green>D0ubleD0m1nation</Green>
-				<p>
-					aapd recus'andae' fugit ducim'us pariatur voluptas suscipit.
-					(Nisi ex reppppppiciendis 'officia' officiis. Debitis
-					deserunt') dolorem. hh( Dolo )res sit quos sint nesciunt
-					natus fugiat aut 'laudantiu'm nisi.
-				</p>
-				<Red>
-					Perferendis quam exercitationem repellendus eum. Quis
-					conseuaur incidunt ysipqui et earum aut ea. Occaecati
-					voluptatum" nam explicabo amet et.
-				</Red>
-			</Container>
-		</>
+		<Container>
+			<Red>D0ubleD0m1nation</Red>
+			<Green>D0ubleD0m1nation</Green>
+			<p>
+				aapd recus'andae' fugit ducim'us pariatur voluptas suscipit.
+				(Nisi ex reppppppiciendis 'officia' officiis. Debitis deserunt')
+				dolorem. hh( Dolo )res sit quos sint nesciunt natus fugiat aut
+				'laudantiu'm nisi.
+			</p>
+			<Red>
+				Perferendis quam exercitationem repellendus eum. Quis conseuaur
+				incidunt ysipqui et earum aut ea. Occaecati voluptatum" nam
+				explicabo amet et.
+			</Red>
+		</Container>
 	);
 }
 

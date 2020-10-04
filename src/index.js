@@ -7,4 +7,8 @@ import "./index.css";
 import UnitCard from "./components/UnitCard/UnitCard";
 import MetaCard from "./components/UnitCard/MetilCard";
 
-ReactDOM.render(<UnitCard />, <MetaCard />, document.getElementById("root"));
+<MetaCard />;
+
+ReactDOM.render(<UnitCard />, document.getElementById("root"));
+
+/* FIXME: Dosent render correctly. Need to figurre out why */
