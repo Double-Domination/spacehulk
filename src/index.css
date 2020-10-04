@@ -120,4 +120,19 @@ table {
 * {
 	font-family: "Press Start 2P", cursive;
 	font-size: 1em;
+	color: blueviolet;
+}
+
+.red {
+	background-color: red;
+	color: black;
+	border-radius: 20px;
+	text-decoration: underline;
+
+	text-decoration-color: red;
+	text-transform: uppercase;
+}
+
+.overlap {
+	color: pink;
 }
