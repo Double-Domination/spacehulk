@@ -7,22 +7,28 @@
  * Unit Card
  */
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
 import { createUseStyles, ThemeProvider, useTheme } from "react-jss";
 import styled from "styled-jss";
-import fontGlobal from "../AssetsGlobal/vt323.woff";
+/* import fontGlobal from "../AssetsGlobal/vt323.woff"; */
 document.title = "CSS Manual TurboCharge";
 
-const vt323 = fontGlobal;
-
-const sty = jss.createStyleSheet({
-	"@font-face": {
-		fontFamily: " vt323regular ",
-		src: "url(../AssetsGlobal/vt323.woff)",
+const stlDefinition = createUseStyles({
+	blackrage: {
+		backgroundColor: "red",
+		padding: "15px",
+		color: "black",
+		/*
+			"@font-face": {
+			fontFamily: " vt323regular ",
+			src: "url(../AssetsGlobal/vt323.woff)",
+		},
+		*/
 	},
 });
 
 function UnitCard() {
+	const stlUnitCard = stlDefinition();
 	const Container = styled("div")({
 		backgroundColor: "silver",
 	});
@@ -48,7 +54,7 @@ function UnitCard() {
 		<Container>
 			<Red>D0ubleD0m1nation</Red>
 			<Green>D0ubleD0m1nation</Green>
-			<p>
+			<p className={stlUnitCard.blackrage}>
 				aapd recus'andae' fugit ducim'us pariatur voluptas suscipit.
 				(Nisi ex reppppppiciendis 'officia' officiis. Debitis deserunt')
 				dolorem. hh( Dolo )res sit quos sint nesciunt natus fugiat aut
@@ -73,5 +79,6 @@ Type 67 PseudoSelectors
 123
 Plaing with multicursor$s
 page 129
+page 151 Playing with fonts
 */
 export default UnitCard;
