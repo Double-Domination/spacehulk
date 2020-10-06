@@ -5,9 +5,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import UnitCard from "./components/UnitCard/UnitCard";
-import MetaCard from "./components/UnitCard/MetilCard";
+
+/* 
+import MetaCard from "./components/UnitvCard/MetaCard";
+
 
 <MetaCard />;
+ */
+/* rerum animi quae */
 
 ReactDOM.render(<UnitCard />, document.getElementById("root"));
 
