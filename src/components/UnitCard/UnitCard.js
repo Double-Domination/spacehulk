@@ -15,9 +15,12 @@ document.title = "CSS Manual TurboCharge";
 
 const stlDefinition = createUseStyles({
 	blackrage: {
-		backgroundColor: "red",
+		backgroundColor: "silver",
 		padding: "15px",
 		color: "black",
+		border: "double 8px #FFA",
+		textShadow: "-5px 5px 0px red, 5px -5px 0px teal",
+		textAllign: "",
 		/*
 			"@font-face": {
 			fontFamily: " vt323regular ",
@@ -25,12 +28,37 @@ const stlDefinition = createUseStyles({
 		},
 		*/
 	},
+	triBorder: {
+		lineHeight: "75%",
+		width: "300px",
+		margin: "0 auto",
+		dislay: "block",
+		boxSizing: "border-box",
+		boxShadow:
+			"-5px -5px 0px pink, 5px 5px 0px tomato, -5px 5px 0px red, 5px -5px 0px orange",
+		textDecoration: "none",
+		backgroundColor: "white",
+		border: "solid black 9px",
+		"& p::first-letter": {
+			fontSize: "40px",
+			color: "gold",
+		},
+	},
 });
 
 function UnitCard() {
 	const stlUnitCard = stlDefinition();
 	const Container = styled("div")({
 		backgroundColor: "silver",
+		fontSize: ".75rem",
+		fontStyle: "italic",
+		fontWeight: "200",
+		textTransform: "capitalize",
+		fontVariant: "small-caps",
+		textDecoration: "overline underline",
+		letterSpacing: "-1px",
+		wordSpacing: "2px",
+		textIndent: "4em",
 	});
 
 	const Green = styled("button")({
@@ -50,8 +78,12 @@ function UnitCard() {
 		textTransform: "uppercase",
 	});
 
+	const ViText = styled("div")({
+		fontSize: "1em",
+	});
+
 	return (
-		<Container>
+		<Container className={stlUnitCard.triBorder}>
 			<Red>D0ubleD0m1nation</Red>
 			<Green>D0ubleD0m1nation</Green>
 			<p className={stlUnitCard.blackrage}>
@@ -59,6 +91,20 @@ function UnitCard() {
 				(Nisi ex reppppppiciendis 'officia' officiis. Debitis deserunt')
 				dolorem. hh( Dolo )res sit quos sint nesciunt natus fugiat aut
 				'laudantiu'm nisi.
+			</p>
+
+			<p className={stlUnitCard.triBorder}>
+				Hic consequatur rerum laboriosam ratione nobis earum.
+			</p>
+			<p>gdfgdfg</p>
+			<p>gsgdfgsd</p>
+			<p>gsdgsdgsd gsdfgsdg dsgsdg dgsdgsd gdsfg</p>
+			<p>gsdgsdgsd gsdfgsdg dsgsdg dgsdgsd gdsfg</p>
+			<p>gsdgsdgsd gsdfgsdg dsgsdg dgsdgsd gdsfg</p>
+			<p>gsdgsdgsd gsdfgsdg dsgsdg dgsdgsd gdsfg</p>
+			<p>
+				Adipisci autem magnam perspiciatis nesciunt veniam cum sint.
+				Provident officia ut. Voluptas ab praesentium ut est.
 			</p>
 		</Container>
 	);
@@ -80,5 +126,7 @@ Type 67 PseudoSelectors
 Plaing with multicursor$s
 page 129
 page 151 Playing with fonts
+page 168 192 Stylig Lists
+
 */
 export default UnitCard;
