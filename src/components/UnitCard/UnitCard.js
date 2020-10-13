@@ -85,7 +85,7 @@ function UnitCard() {
 			textDecoration: 'underline',
 			marginLeft: '2em',
 			fontSize: '0,9 rem',
-			listStyleType: 'circle',
+			listStyleType: 'none',
 			listStylePosition: 'inside',
 			color: 'black',
 			
@@ -94,6 +94,14 @@ function UnitCard() {
 			backgroundRepeat: 'no-repeat',
 			paddingLeft:'2em',
 		}
+	});
+
+
+	const CollapsingMargins = styled('div')({
+		margin: '10px',
+		backgroundColor: 'gold',
+		display: 'inline-block',
+		borderRadius:'0 20%/100%'
 	});
 	
 	
@@ -112,7 +120,21 @@ function UnitCard() {
 		<Container >
 			<Red>D0ubleD0m1nation</Red>
 			<Green>D0ubleD0m1nation</Green>
-			
+			<CollapsingMargins >
+				<p>Veritatis odit in sed rerum et aut consequatur minima.</p>
+
+			</CollapsingMargins>
+
+			<CollapsingMargins style={{margin :'10px'}}>
+				<h1 style={{ margin: '70px' }}>
+					ollapsing margin fx
+				</h1>
+				<p style={{ margin: '70px' }}>
+					veritatis alias sunt
+				</p>
+
+			</CollapsingMargins>
+
 			<CustomOL>
 				<h2>Something here</h2>
 				<li>dubas</li>
@@ -141,6 +163,7 @@ Plaing with multicursor$s
 page 129
 page 151 Playing with fonts
 page 168 192 Stylig Lists
+page 204 228 box shadows
 
 */
 export default UnitCard;
