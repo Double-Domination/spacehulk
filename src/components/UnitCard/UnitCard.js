@@ -11,7 +11,10 @@ import { render } from 'react-dom';
 import { createUseStyles, ThemeProvider, useTheme } from 'react-jss';
 import styled from 'styled-jss';
 /* import fontGlobal from '../AssetsGlobal/vt323.woff'; */
-document.title = 'CSS Manual TurboCharge';
+
+import  bloodAngels  from '../AssetsGlobal/40k-icons/src/svgs/blood-angels.svg';
+
+document.title = 'CSS Manual TurboCharge'
 
 const stlDefinition = createUseStyles({
 	typographyMixin: {
@@ -24,7 +27,7 @@ const stlDefinition = createUseStyles({
 		letterSpacing: '-1px',
 		wordSpacing: '2px',
 		textIndent: '4em',
-		color: 'white',
+		color: 'crimson',
 		textAllign: 'center',
 
 	},
@@ -73,24 +76,32 @@ function UnitCard() {
 		textDecoration: 'underline',
 		borderRadius: '61px',
 	});
-	const TemlateLiteralsOl = styled('ol')({
-		border: 'solid black 5px',
-		borderradius:' 5px',
-		padding: '12px',
-		backgroundColor:'gold',
-		color:'violet',
-		
+
+
+	const CustomOL = styled('ol')({
+		color: 'orange',
+		border: 'dashed 3px black',
+		'& li': {
+			textDecoration: 'underline',
+			marginLeft: '2em',
+			fontSize: '0,9 rem',
+			listStyleType: 'circle',
+			listStylePosition: 'inside',
+			color: 'black',
+			
+			backgroundImage: `url(${bloodAngels})`,
+			backgroundPosition: '0 0',
+			backgroundRepeat: 'no-repeat',
+			paddingLeft:'2em',
+		}
 	});
+	
+	
 
 
 	const Red = styled(Green)({
 		backgroundColor: 'white',
 		color:'violet'
-	/* 	backgroundColor: 'red',
-		color: 'black',
-		borderRadius: '20px',
-		textDecoration: 'underline',
-		textTransform: 'uppercase', */
 	});
 
 	const ViText = styled('div')({
@@ -102,12 +113,13 @@ function UnitCard() {
 			<Red>D0ubleD0m1nation</Red>
 			<Green>D0ubleD0m1nation</Green>
 			
-			<TemlateLiteralsOl>
+			<CustomOL>
+				<h2>Something here</h2>
 				<li>dubas</li>
 				<li>bombud</li>
 				<li>uas</li>
 				<li>METILXXX</li>
-			</TemlateLiteralsOl>
+			</CustomOL>
 		</Container>
 	);
 }
