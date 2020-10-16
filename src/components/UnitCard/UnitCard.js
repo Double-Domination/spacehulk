@@ -31,6 +31,9 @@ const stlDefinition = createUseStyles({
 		textAllign: 'center',
 
 	},
+	clearfixit: {
+		float:'right',
+	},
 	
 	blackrage: {
 		backgroundColor: 'silver',
@@ -96,6 +99,25 @@ function UnitCard() {
 		}
 	});
 
+	const GridLine = styled('div')({
+		border: 'dashed 3px purple',
+		backgroundColor: 'gold',
+		clear: 'both',
+		dislay:'block',
+		overflow: 'hidden',
+		boxShadow:'0 0 15px 5px rgba(44,82,100, .75)'
+
+	});
+	const GridCol = styled('div')({
+		border: 'solid 3px red',
+		marginRight:'10px',
+		float: 'right`',
+		backgroundColor:'silver',
+		dislay: 'inline-block',
+		clear:'both',
+		
+	});
+
 
 	const CollapsingMargins = styled('div')({
 		margin: '10px',
@@ -141,7 +163,22 @@ function UnitCard() {
 				<li>bombud</li>
 				<li>uas</li>
 				<li>METILXXX</li>
+
 			</CustomOL>
+			<h1>Grid Princeps</h1>
+			<GridLine>
+				<GridCol>11111111111</GridCol>
+				<GridCol>2222222222222</GridCol>
+				<GridCol>11111111111</GridCol>
+			</GridLine>
+
+			<GridLine>
+				<img className={stlUnitCard.clearfixit} src="https://via.placeholder.com/250" alt="1"/>
+				<img className={stlUnitCard.clearfixit} src="https://via.placeholder.com/350" alt="1"/>
+				<img className={stlUnitCard.clearfixit} src="https://via.placeholder.com/150" alt="1"/>
+				<img className={stlUnitCard.clearfixit} src="https://via.placeholder.com/150" alt="1"/>
+			</GridLine>
+
 		</Container>
 	);
 }
@@ -164,6 +201,10 @@ page 129
 page 151 Playing with fonts
 page 168 192 Stylig Lists
 page 204 228 box shadows
+height and width
+wraooing content with float elements
+sidebar creator
+
 
 */
 export default UnitCard;
