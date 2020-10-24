@@ -101,20 +101,28 @@ function UnitCard() {
 
 	const GridLine = styled('div')({
 		border: 'dashed 3px purple',
-		backgroundColor: 'gold',
+		backgroundColor: 'silver',
 		clear: 'both',
 		dislay:'block',
 		overflow: 'hidden',
-		boxShadow:'0 0 15px 5px rgba(44,82,100, .75)'
+		boxShadow:'0 0 15px 5px rgba(44,82,100, .75)',
+		width: '100%',
+		padding: '0',
+		minWidth: '100%',
+		maxWidth: '100%',
+		
 
 	});
 	const GridCol = styled('div')({
 		border: 'solid 3px red',
-		marginRight:'10px',
-		float: 'right`',
+		margin:'0 auto',
+		float: 'right',
 		backgroundColor:'silver',
 		dislay: 'inline-block',
-		clear:'both',
+		maxWidth: '100%',
+		minWidth: '10%',
+		boxSizing:'border-box',
+
 		
 	});
 
@@ -168,6 +176,8 @@ function UnitCard() {
 			<h1>Grid Princeps</h1>
 			<GridLine>
 				<GridCol>11111111111</GridCol>
+				<GridCol>11111111111</GridCol>
+				<GridCol>11111111111</GridCol>
 				<GridCol>2222222222222</GridCol>
 				<GridCol>11111111111</GridCol>
 			</GridLine>
@@ -204,6 +214,11 @@ page 204 228 box shadows
 height and width
 wraooing content with float elements
 sidebar creator
+adding grafic to web pages
+styling backgrounds
+bring special effects to background images
+
+
 
 
 */
