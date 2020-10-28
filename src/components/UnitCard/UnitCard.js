@@ -12,7 +12,8 @@ import { createUseStyles, ThemeProvider, useTheme } from 'react-jss';
 import styled from 'styled-jss';
 /* import fontGlobal from '../AssetsGlobal/vt323.woff'; */
 
-import  bloodAngels  from '../AssetsGlobal/40k-icons/src/svgs/blood-angels.svg';
+import bloodAngels from '../AssetsGlobal/40k-icons/src/svgs/blood-angels.svg';
+import deathDread from '../AssetsGlobal/assets/death-company-dreadnout.jpg';
 
 document.title = 'CSS Manual TurboCharge'
 
@@ -57,6 +58,13 @@ const stlDefinition = createUseStyles({
 		'& p::first-letter': {
 			fontSize: '40px',
 			color: 'gold',
+		},
+		backImg: {
+			backgroundImage:`url(${deathDread})`,
+			backgroundRepeat:'no-repeat',
+			backgroundOrigin:'content-box',
+			border:'dashed red 3px',
+			
 		},
 	},
 
@@ -146,8 +154,31 @@ function UnitCard() {
 		fontSize: '1em',
 	});
 
+	const CoverBack = styled('div')({
+		backgroundImage: `url(${deathDread})`,
+		backgroundColor: 'silver',
+		backgroundBlendMode:'screen',
+		backgroundRepeat: 'no-repeat',
+		backgroundAttachment:'local',
+		
+		backgroundOrigin: 'border-box',
+		backgroundClip: 'content-box',
+		backgroundPosition:'left center',
+		backgroundSize:'100% auto',
+		border: 'dashed red 9px',
+		padding: '20px',
+		height: '500px',
+		width: '400px',
+		
+		
+			
+	});
+
 	return (
 		<Container >
+			<CoverBack>
+				SSSSSSSSSSSSSSSSSs
+			</CoverBack>
 			<Red>D0ubleD0m1nation</Red>
 			<Green>D0ubleD0m1nation</Green>
 			<CollapsingMargins >
@@ -183,10 +214,13 @@ function UnitCard() {
 			</GridLine>
 
 			<GridLine>
-				<img className={stlUnitCard.clearfixit} src="https://via.placeholder.com/250" alt="1"/>
-				<img className={stlUnitCard.clearfixit} src="https://via.placeholder.com/350" alt="1"/>
-				<img className={stlUnitCard.clearfixit} src="https://via.placeholder.com/150" alt="1"/>
-				<img className={stlUnitCard.clearfixit} src="https://via.placeholder.com/150" alt="1"/>
+				<img className={stlUnitCard.clearfixit} src={deathDread} alt="1"/>
+				<img className={stlUnitCard.clearfixit}
+					src="https://via.placeholder.com/350" alt="1" />
+				<img className={stlUnitCard.clearfixit}
+					src="https://via.placeholder.com/150" alt="1" />
+				<img className={stlUnitCard.clearfixit}
+					src="https://via.placeholder.com/150" alt="1" />
 			</GridLine>
 
 		</Container>
