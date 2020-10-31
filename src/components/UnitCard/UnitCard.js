@@ -103,7 +103,7 @@ function UnitCard() {
 			backgroundImage: `url(${bloodAngels})`,
 			backgroundPosition: '0 0',
 			backgroundRepeat: 'no-repeat',
-			paddingLeft:'2em',
+			paddingLeft: '2em',
 		}
 	});
 
@@ -111,9 +111,9 @@ function UnitCard() {
 		border: 'dashed 3px purple',
 		backgroundColor: 'silver',
 		clear: 'both',
-		dislay:'block',
+		dislay: 'block',
 		overflow: 'hidden',
-		boxShadow:'0 0 15px 5px rgba(44,82,100, .75)',
+		boxShadow: '0 0 15px 5px rgba(44,82,100, .75)',
 		width: '100%',
 		padding: '0',
 		minWidth: '100%',
@@ -123,13 +123,13 @@ function UnitCard() {
 	});
 	const GridCol = styled('div')({
 		border: 'solid 3px red',
-		margin:'0 auto',
+		margin: '0 auto',
 		float: 'right',
-		backgroundColor:'silver',
+		backgroundColor: 'silver',
 		dislay: 'inline-block',
 		maxWidth: '100%',
 		minWidth: '10%',
-		boxSizing:'border-box',
+		boxSizing: 'border-box',
 
 		
 	});
@@ -139,7 +139,7 @@ function UnitCard() {
 		margin: '10px',
 		backgroundColor: 'gold',
 		display: 'inline-block',
-		borderRadius:'0 20%/100%'
+		borderRadius: '0 20%/100%'
 	});
 	
 	
@@ -147,7 +147,7 @@ function UnitCard() {
 
 	const Red = styled(Green)({
 		backgroundColor: 'white',
-		color:'violet'
+		color: 'violet'
 	});
 
 	const ViText = styled('div')({
@@ -157,14 +157,14 @@ function UnitCard() {
 	const CoverBack = styled('div')({
 		backgroundImage: `url(${deathDread})`,
 		backgroundColor: 'silver',
-		backgroundBlendMode:'screen',
+		backgroundBlendMode: 'screen',
 		backgroundRepeat: 'no-repeat',
-		backgroundAttachment:'local',
+		backgroundAttachment: 'scrool',
 		
 		backgroundOrigin: 'border-box',
 		backgroundClip: 'content-box',
-		backgroundPosition:'left center',
-		backgroundSize:'100% auto',
+		backgroundPosition: 'left center',
+		backgroundSize: '50% auto',
 		border: 'dashed red 9px',
 		padding: '20px',
 		height: '500px',
@@ -174,11 +174,50 @@ function UnitCard() {
 			
 	});
 
+	const CoverbackShorthand = styled('div')({
+		background: `url(${deathDread}) center center  no-repeat #FFF `,
+		width: '300px',
+		border: 'solid black 3px'
+		
+	});
+
+	const ContainerAlligmentRow = styled('div')({
+		dislay:'block',
+		border: 'dashed black 3px',
+		padding: '15px',
+		textAlign:'right',
+		// clear:'both',
+		
+		
+	});
+	
+	const ContainerAlligmentCell = styled('div')({
+		dislay: 'inline',
+		border:'solid white 4px',
+		backgroundColor:'violet',
+		padding: '15px',
+		width: '200px',
+		margin:'0 auto',
+		// float:'left'
+		
+		
+	});
+
 	return (
 		<Container >
+			<ContainerAlligmentRow>
+			2524542
+				<ContainerAlligmentCell>23524545</ContainerAlligmentCell>
+				<ContainerAlligmentCell>23524545</ContainerAlligmentCell>
+			</ContainerAlligmentRow>
+			
 			<CoverBack>
 				SSSSSSSSSSSSSSSSSs
 			</CoverBack>
+
+			<CoverbackShorthand>
+				xxxxxxxxxxxxxxxxxxxxxxx
+			</CoverbackShorthand>
 			<Red>D0ubleD0m1nation</Red>
 			<Green>D0ubleD0m1nation</Green>
 			<CollapsingMargins >
