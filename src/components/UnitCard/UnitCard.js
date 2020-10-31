@@ -203,8 +203,25 @@ function UnitCard() {
 		
 	});
 
+	const LeaderBoard = styled('div')({
+		backgroundImage: 'url("https://via.placeholder.com/175x40"), url("https://via.placeholder.com/510x40"), url("https://via.placeholder.com/350x50")',
+		width: '500px',
+		height: '700px',
+	backgroundRepeat:'no-repeat, repeat-y, no-repeat',
+		backgroundColor: 'gold',
+		color:'violet'
+		
+	});
 	return (
 		<Container >
+			<LeaderBoard>
+				<h1>This is leaderboard</h1>
+				<ul>
+					<li>ww</li>
+					<li>www</li>
+					<li>width</li>
+				</ul>
+			</LeaderBoard>
 			<ContainerAlligmentRow>
 			2524542
 				<ContainerAlligmentCell>23524545</ContainerAlligmentCell>
