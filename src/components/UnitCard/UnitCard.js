@@ -204,16 +204,27 @@ function UnitCard() {
 	});
 
 	const LeaderBoard = styled('div')({
-		backgroundImage: 'url("https://via.placeholder.com/175x40"), url("https://via.placeholder.com/510x40"), url("https://via.placeholder.com/350x50")',
-		width: '500px',
-		height: '700px',
-	backgroundRepeat:'no-repeat, repeat-y, no-repeat',
-		backgroundColor: 'gold',
-		color:'violet'
+		background: 'url("https://via.placeholder.com/175x70")center bottom no-repeat',
 		
 	});
+
+
+	const GradientS = styled('div')({
+		backgroundImage:'repeating-linear-gradient(to right, purple 20px, orange 40px)',
+		border: 'solid orange 4px',
+		padding: '14px',
+
+	});
+	
+
 	return (
 		<Container >
+
+			<GradientS>
+				ghghghghh
+12231313					
+			</GradientS>
+			
 			<LeaderBoard>
 				<h1>This is leaderboard</h1>
 				<ul>
