@@ -70,7 +70,7 @@ const stlDefinition = createUseStyles({
 
 });
 
-function UnitCard() {
+function UnitCard() { 
 	const stlUnitCard = stlDefinition();
 	
 	const Container = styled('div')({
@@ -159,7 +159,7 @@ function UnitCard() {
 		backgroundColor: 'silver',
 		backgroundBlendMode: 'screen',
 		backgroundRepeat: 'no-repeat',
-		backgroundAttachment: 'scrool',
+		backgroundAttachment: 'local',
 		
 		backgroundOrigin: 'border-box',
 		backgroundClip: 'content-box',
@@ -176,7 +176,11 @@ function UnitCard() {
 
 	const CoverbackShorthand = styled('div')({
 		background: `url(${deathDread}) center center  no-repeat #FFF `,
+		backgroundAttachment: 'local',
+		overflow:'scroll',
+		
 		width: '300px',
+		height:'150px',
 		border: 'solid black 3px'
 		
 	});
@@ -215,10 +219,37 @@ function UnitCard() {
 		padding: '14px',
 
 	});
+
+	const Gradient1=styled('div')({
+		backgroundImage:' repeating-linear-gradient(45deg, #900 20px, #FC0 30px, #900 40px)',
+	});
 	
+	const GradientSharpStripes = styled('div')({
+		backgroundImage:' repeating-linear-gradient(45deg, yellow 0, yellow 10px, black 10px, black 20px)',
+	});
+
+
+	const HexagonalGradient = styled('div')({
+		backgroundImage: `linear-gradient(90deg, black 0, black 10px, transparent 10px, transparent 20px),
+						 url(${deathDread})`,
+	});
+
+	const RadialGradient = styled('div')({
+		backgroundImage:'radial-gradient(closest-corner circle at 20% 40%, transparent, yellowgreen)'
+	});
 
 	return (
 		<Container >
+			<RadialGradient>
+				Vitae facere facilis atque aut optio laborum neque. Odit ea velit et ut ut totam saepe. Vel cum incidunt omnis esse error. Animi ratione porro aperiam dolor consequuntur est quia velit veniam. Eaque facere cupiditate.
+		</RadialGradient>
+			<HexagonalGradient>
+				fdsfsdfsd
+					FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+				SSSSSSSSSSSSSSSSSSSSSSS
+		</HexagonalGradient>
+		<GradientSharpStripes>dasfasfasfas</GradientSharpStripes>
+		<Gradient1>sdgsdgsgsgsd</Gradient1>
 
 			<GradientS>
 				ghghghghh
@@ -245,6 +276,12 @@ function UnitCard() {
 
 			<CoverbackShorthand>
 				xxxxxxxxxxxxxxxxxxxxxxx
+					
+				Nostrum incidunt tenetur veritatis asperiores odio sed. Eos
+				 iste dolore. Iusto nemo molestiae veritatis doloremque sap
+				 iente laudantium repudiandae ut repellat. Aut repudiandae
+				  ut impedit minus ex. Voluptas veniam voluptas quo nobis
+				   laudantium.
 			</CoverbackShorthand>
 			<Red>D0ubleD0m1nation</Red>
 			<Green>D0ubleD0m1nation</Green>
@@ -292,7 +329,7 @@ function UnitCard() {
 
 		</Container>
 	);
-}
+ }
 
 /* TODO: Qouc'kkka' dosent work
 
