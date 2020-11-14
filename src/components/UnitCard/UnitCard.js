@@ -237,9 +237,27 @@ function UnitCard() {
 	const RadialGradient = styled('div')({
 		backgroundImage:'radial-gradient(closest-corner circle at 20% 40%, transparent, yellowgreen)'
 	});
+	const RadialGradient2 = styled('div')({
+		backgroundImage:' repeating-radial-gradient(circle, red 20px, orange 30px, yellow 40px, red 50px)',
+	});
 
 	return (
 		<Container >
+			<RadialGradient2>
+				iste-quia-sapiente
+				iste-quia-sapiente
+				iste-quia-sapiente
+				iste-quia-sapiente
+				iste-quia-sapiente
+				iste-quia-sapiente
+				iste-quia-sapiente
+				iste-quia-sapiente
+				iste-quia-sapiente
+				iste-quia-sapiente
+				iste-quia-sapiente
+				iste-quia-sapiente
+			</RadialGradient2>
+
 			<RadialGradient>
 				Vitae facere facilis atque aut optio laborum neque. Odit ea velit et ut ut totam saepe. Vel cum incidunt omnis esse error. Animi ratione porro aperiam dolor consequuntur est quia velit veniam. Eaque facere cupiditate.
 		</RadialGradient>
