@@ -70,25 +70,71 @@ const stlDefinition = createUseStyles({
 		color: "white",
 		border: "solid black 5px",
 		width: "100%",
-		height: "200px",
+		height: "1200px",
 		backgroundColor: "gray",
 		boxShadow: "0 0 20px gold inset",
 		boxSizing: "border-box",
 	},
 	main: {
-		position: "relative",
-
+		position: "sticky",
+		top: "0",
 		width: "100%",
 		backgroundColor: "red",
 	},
 	subsection: {
-		position: "absolute",
-		top: "0",
+		"position": "statc",
+		"top": "0",
 
-		paddingLeft: "20px",
+		"paddingLeft": "20px",
+		"width": "100%",
+		"height": "100px",
+		"backgroundColor": "violet",
+		"&:last-child": {
+			color: "lime",
+			marginTop: "40px",
+			border: "1px solid black",
+		},
+	},
+	secondStick: {
+		position: "sticky",
+		top: "0",
+		height: "299px",
 		width: "100%",
+		backgroundColor: "lime",
+	},
+
+	animated: {
+		width: "100px",
 		height: "100px",
-		backgroundColor: "violet",
+	},
+
+	firstAnimation: {
+		"backgroundColor": "lime",
+		"&:hover": {
+			opacity: "0",
+			transition: "opacity 1s",
+		},
+	},
+	secondAnimation: {
+		"backgroundColor": "indigo",
+		"&:hover": {
+			transform: "skewX(35deg)",
+			transition: "transform 1s",
+		},
+	},
+	thirdAnimation: {
+		"backgroundColor": "crimson",
+		"&:hover": {
+			height: "0px",
+			transition: "height 1s",
+		},
+	},
+	dropdown: {
+		"color": "red",
+		"border": "gold dashed 2px",
+		"&:hover": {
+			border: "solid red 19px",
+		},
 	},
 });
 
@@ -254,9 +300,34 @@ function UnitCard() {
 		//margins coapsing here??
 		//TODO need to figure out how margin collapsing works
 	});
+	const AnimatedDrop = styled("div")({
+		border: "solid 1px lime",
+	});
 
 	return (
 		<Container>
+			<AnimatedDrop>
+				<div className={stlUnitCard.dropdown}>V</div>
+				<div
+					className={`
+						${stlUnitCard.animated}
+						${stlUnitCard.firstAnimation}
+						`}
+				></div>
+				<div
+					className={`
+					${stlUnitCard.animated}
+					${stlUnitCard.secondAnimation}
+					`}
+				></div>
+				<div
+					className={`
+					${stlUnitCard.animated}
+					${stlUnitCard.thirdAnimation}
+				`}
+				></div>
+			</AnimatedDrop>
+
 			<AccordionSection>
 				<section className={stlUnitCard.secondary}>
 					THIS IS SECONDARY SECTION
@@ -264,9 +335,11 @@ function UnitCard() {
 				<section className={stlUnitCard.main}>
 					THIS IS MAIN SECTION
 					<div className={stlUnitCard.subsection}>
-						THIS IS SUBSECTION
+						<p>First CHILD subsection</p>
+						<p>SECOND CHILD subsection </p>
 					</div>
 				</section>
+				<section className={stlUnitCard.secondStick}></section>
 				<section className={stlUnitCard.secondary}>
 					THIS IS SECONDARY SECTION 2
 				</section>
