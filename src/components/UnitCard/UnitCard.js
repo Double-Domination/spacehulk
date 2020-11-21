@@ -6,274 +6,305 @@
  *
  * Unit Card
  */
-import React from 'react';
-import { render } from 'react-dom';
-import { createUseStyles, ThemeProvider, useTheme } from 'react-jss';
-import styled from 'styled-jss';
+import React from "react";
+import { render } from "react-dom";
+import { createUseStyles, ThemeProvider, useTheme } from "react-jss";
+import styled from "styled-jss";
 /* import fontGlobal from '../AssetsGlobal/vt323.woff'; */
 
-import bloodAngels from '../AssetsGlobal/40k-icons/src/svgs/blood-angels.svg';
-import deathDread from '../AssetsGlobal/assets/death-company-dreadnout.jpg';
+import bloodAngels from "../AssetsGlobal/40k-icons/src/svgs/blood-angels.svg";
+import deathDread from "../AssetsGlobal/assets/death-company-dreadnout.jpg";
 
-document.title = 'CSS Manual TurboCharge'
+document.title = "CSS Manual TurboCharge";
 
 const stlDefinition = createUseStyles({
 	typographyMixin: {
-		fontSize: '.75rem',
-		fontStyle: 'bold',
-		fontWeight: '200',
-		textTransform: 'capitalize',
-		fontVariant: 'small-caps',
-		textDecoration: 'overline underline',
-		letterSpacing: '-1px',
-		wordSpacing: '2px',
-		textIndent: '4em',
-		color: 'crimson',
-		textAllign: 'center',
-
+		fontSize: ".75rem",
+		fontStyle: "bold",
+		fontWeight: "200",
+		textTransform: "capitalize",
+		fontVariant: "small-caps",
+		textDecoration: "overline underline",
+		letterSpacing: "-1px",
+		wordSpacing: "2px",
+		textIndent: "4em",
+		color: "crimson",
+		textAllign: "center",
 	},
 	clearfixit: {
-		float:'right',
+		float: "right",
 	},
-	
+
 	blackrage: {
-		backgroundColor: 'silver',
-		padding: '15px',
-		color: 'black',
-		border: 'double 8px #FFA',
-		textShadow: '-5px 5px 0px red, 5px -5px 0px teal',
-		textAllign: 'center',
+		backgroundColor: "silver",
+		padding: "15px",
+		color: "black",
+		border: "double 8px #FFA",
+		textShadow: "-5px 5px 0px red, 5px -5px 0px teal",
+		textAllign: "center",
 	},
 	triBorder: {
-		lineHeight: '75%',
-		width: '90%',
-		margin: '0 auto',
-		dislay: 'block',
-		boxSizing: 'border-box',
-		boxShadow:
-			'-5px -5px 0px pink, 5px 5px 0px tomato, -5px 5px 0px red, 5px -5px 0px orange',
-		textDecoration: 'none',
-		backgroundColor: 'white',
-		border: 'solid black 9px',
-		'& p::first-letter': {
-			fontSize: '40px',
-			color: 'gold',
-		},
-		backImg: {
-			backgroundImage:`url(${deathDread})`,
-			backgroundRepeat:'no-repeat',
-			backgroundOrigin:'content-box',
-			border:'dashed red 3px',
-			
+		"lineHeight": "75%",
+		"width": "90%",
+		"margin": "0 auto",
+		"dislay": "block",
+		"boxSizing": "border-box",
+		"boxShadow":
+			"-5px -5px 0px pink, 5px 5px 0px tomato, -5px 5px 0px red, 5px -5px 0px orange",
+		"textDecoration": "none",
+		"backgroundColor": "white",
+		"border": "solid black 9px",
+		"& p::first-letter": {
+			fontSize: "40px",
+			color: "gold",
 		},
 	},
+	backImg: {
+		backgroundImage: `url(${deathDread})`,
+		backgroundRepeat: "no-repeat",
+		backgroundOrigin: "content-box",
+		border: "dashed red 3px",
+	},
 
+	secondary: {
+		color: "white",
+		border: "solid black 5px",
+		width: "100%",
+		height: "200px",
+		backgroundColor: "gray",
+		boxShadow: "0 0 20px gold inset",
+		boxSizing: "border-box",
+	},
+	main: {
+		position: "relative",
+
+		width: "100%",
+		backgroundColor: "red",
+	},
+	subsection: {
+		position: "absolute",
+		top: "0",
+
+		paddingLeft: "20px",
+		width: "100%",
+		height: "100px",
+		backgroundColor: "violet",
+	},
 });
 
-function UnitCard() { 
+function UnitCard() {
 	const stlUnitCard = stlDefinition();
-	
-	const Container = styled('div')({
-		backgroundColor: 'silver',
-		
-		
+
+	const Container = styled("div")({
+		backgroundColor: "silver",
 	});
 
-	const Green = styled('button')({
-		padding: '5px',
-		margin: '40px',
-		backgroundColor: 'green',
+	const Green = styled("button")({
+		padding: "5px",
+		margin: "40px",
+		backgroundColor: "green",
 		fontWeight: 900,
-		textDecoration: 'underline',
-		borderRadius: '61px',
+		textDecoration: "underline",
+		borderRadius: "61px",
 	});
 
+	const CustomOL = styled("ol")({
+		"color": "orange",
+		"border": "dashed 3px black",
+		"& li": {
+			textDecoration: "underline",
+			marginLeft: "2em",
+			fontSize: "0,9 rem",
+			listStyleType: "none",
+			listStylePosition: "inside",
+			color: "black",
 
-	const CustomOL = styled('ol')({
-		color: 'orange',
-		border: 'dashed 3px black',
-		'& li': {
-			textDecoration: 'underline',
-			marginLeft: '2em',
-			fontSize: '0,9 rem',
-			listStyleType: 'none',
-			listStylePosition: 'inside',
-			color: 'black',
-			
 			backgroundImage: `url(${bloodAngels})`,
-			backgroundPosition: '0 0',
-			backgroundRepeat: 'no-repeat',
-			paddingLeft: '2em',
-		}
+			backgroundPosition: "0 0",
+			backgroundRepeat: "no-repeat",
+			paddingLeft: "2em",
+		},
 	});
 
-	const GridLine = styled('div')({
-		border: 'dashed 3px purple',
-		backgroundColor: 'silver',
-		clear: 'both',
-		dislay: 'block',
-		overflow: 'hidden',
-		boxShadow: '0 0 15px 5px rgba(44,82,100, .75)',
-		width: '100%',
-		padding: '0',
-		minWidth: '100%',
-		maxWidth: '100%',
-		
-
+	const GridLine = styled("div")({
+		border: "dashed 3px purple",
+		backgroundColor: "silver",
+		clear: "both",
+		dislay: "block",
+		overflow: "hidden",
+		boxShadow: "0 0 15px 5px rgba(44,82,100, .75)",
+		width: "100%",
+		padding: "0",
+		minWidth: "100%",
+		maxWidth: "100%",
 	});
-	const GridCol = styled('div')({
-		border: 'solid 3px red',
-		margin: '0 auto',
-		float: 'right',
-		backgroundColor: 'silver',
-		dislay: 'inline-block',
-		maxWidth: '100%',
-		minWidth: '10%',
-		boxSizing: 'border-box',
-
-		
+	const GridCol = styled("div")({
+		border: "solid 3px red",
+		margin: "0 auto",
+		float: "right",
+		backgroundColor: "silver",
+		dislay: "inline-block",
+		maxWidth: "100%",
+		minWidth: "10%",
+		boxSizing: "border-box",
 	});
 
-
-	const CollapsingMargins = styled('div')({
-		margin: '10px',
-		backgroundColor: 'gold',
-		display: 'inline-block',
-		borderRadius: '0 20%/100%'
+	const CollapsingMargins = styled("div")({
+		margin: "10px",
+		backgroundColor: "gold",
+		display: "inline-block",
+		borderRadius: "0 20%/100%",
 	});
-	
-	
-
 
 	const Red = styled(Green)({
-		backgroundColor: 'white',
-		color: 'violet'
+		backgroundColor: "white",
+		color: "violet",
 	});
 
-	const ViText = styled('div')({
-		fontSize: '1em',
+	const ViText = styled("div")({
+		fontSize: "1em",
 	});
 
-	const CoverBack = styled('div')({
+	const CoverBack = styled("div")({
 		backgroundImage: `url(${deathDread})`,
-		backgroundColor: 'silver',
-		backgroundBlendMode: 'screen',
-		backgroundRepeat: 'no-repeat',
-		backgroundAttachment: 'local',
-		
-		backgroundOrigin: 'border-box',
-		backgroundClip: 'content-box',
-		backgroundPosition: 'left center',
-		backgroundSize: '50% auto',
-		border: 'dashed red 9px',
-		padding: '20px',
-		height: '500px',
-		width: '400px',
-		
-		
-			
+		backgroundColor: "silver",
+		backgroundBlendMode: "screen",
+		backgroundRepeat: "no-repeat",
+		backgroundAttachment: "local",
+
+		backgroundOrigin: "border-box",
+		backgroundClip: "content-box",
+		backgroundPosition: "left center",
+		backgroundSize: "50% auto",
+		border: "dashed red 9px",
+		padding: "20px",
+		height: "500px",
+		width: "400px",
 	});
 
-	const CoverbackShorthand = styled('div')({
+	const CoverbackShorthand = styled("div")({
 		background: `url(${deathDread}) center center  no-repeat #FFF `,
-		backgroundAttachment: 'local',
-		overflow:'scroll',
-		
-		width: '300px',
-		height:'150px',
-		border: 'solid black 3px'
-		
+		backgroundAttachment: "local",
+		overflow: "scroll",
+
+		width: "300px",
+		height: "150px",
+		border: "solid black 3px",
 	});
 
-	const ContainerAlligmentRow = styled('div')({
-		dislay:'block',
-		border: 'dashed black 3px',
-		padding: '15px',
-		textAlign:'right',
+	const ContainerAlligmentRow = styled("div")({
+		dislay: "block",
+		border: "dashed black 3px",
+		padding: "15px",
+		textAlign: "right",
 		// clear:'both',
-		
-		
 	});
-	
-	const ContainerAlligmentCell = styled('div')({
-		dislay: 'inline',
-		border:'solid white 4px',
-		backgroundColor:'violet',
-		padding: '15px',
-		width: '200px',
-		margin:'0 auto',
+
+	const ContainerAlligmentCell = styled("div")({
+		dislay: "inline",
+		border: "solid white 4px",
+		backgroundColor: "violet",
+		padding: "15px",
+		width: "200px",
+		margin: "0 auto",
 		// float:'left'
-		
-		
 	});
 
-	const LeaderBoard = styled('div')({
-		background: 'url("https://via.placeholder.com/175x70")center bottom no-repeat',
-		
+	const LeaderBoard = styled("div")({
+		background:
+			'url("https://via.placeholder.com/175x70")center bottom no-repeat',
 	});
 
-
-	const GradientS = styled('div')({
-		backgroundImage:'repeating-linear-gradient(to right, purple 20px, orange 40px)',
-		border: 'solid orange 4px',
-		padding: '14px',
-
+	const GradientS = styled("div")({
+		backgroundImage:
+			"repeating-linear-gradient(to right, purple 20px, orange 40px)",
+		border: "solid orange 4px",
+		padding: "14px",
 	});
 
-	const Gradient1=styled('div')({
-		backgroundImage:' repeating-linear-gradient(45deg, #900 20px, #FC0 30px, #900 40px)',
-	});
-	
-	const GradientSharpStripes = styled('div')({
-		backgroundImage:' repeating-linear-gradient(45deg, yellow 0, yellow 10px, black 10px, black 20px)',
+	const Gradient1 = styled("div")({
+		backgroundImage:
+			" repeating-linear-gradient(45deg, #900 20px, #FC0 30px, #900 40px)",
 	});
 
+	const GradientSharpStripes = styled("div")({
+		backgroundImage:
+			" repeating-linear-gradient(45deg, yellow 0, yellow 10px, black 10px, black 20px)",
+	});
 
-	const HexagonalGradient = styled('div')({
+	const HexagonalGradient = styled("div")({
 		backgroundImage: `linear-gradient(90deg, black 0, black 10px, transparent 10px, transparent 20px),
 						 url(${deathDread})`,
 	});
 
-	const RadialGradient = styled('div')({
-		backgroundImage:'radial-gradient(closest-corner circle at 20% 40%, transparent, yellowgreen)'
+	const RadialGradient = styled("div")({
+		backgroundImage:
+			"radial-gradient(closest-corner circle at 20% 40%, transparent, yellowgreen)",
 	});
-	const RadialGradient2 = styled('div')({
-		backgroundImage:' repeating-radial-gradient(circle, red 20px, orange 30px, yellow 40px, red 50px)',
+	const RadialGradient2 = styled("div")({
+		backgroundImage:
+			" repeating-radial-gradient(circle, red 20px, orange 30px, yellow 40px, red 50px)",
+	});
+
+	const AccordionSection = styled("div")({
+		padding: "30px",
+		border: "dashed red 5px",
+		margin: "15px",
+
+		//margins coapsing here??
+		//TODO need to figure out how margin collapsing works
 	});
 
 	return (
-		<Container >
+		<Container>
+			<AccordionSection>
+				<section className={stlUnitCard.secondary}>
+					THIS IS SECONDARY SECTION
+				</section>
+				<section className={stlUnitCard.main}>
+					THIS IS MAIN SECTION
+					<div className={stlUnitCard.subsection}>
+						THIS IS SUBSECTION
+					</div>
+				</section>
+				<section className={stlUnitCard.secondary}>
+					THIS IS SECONDARY SECTION 2
+				</section>
+				Autem vero id consequatur. Quidem sit odit laudantium quibusdam
+				odit est non recusandae occaecati. Eius reprehenderit explicabo
+				maxime laudantium sed nemo. Fugiat earum dolore. Dignissimos
+				rerum dolorem quibusdam. Quibusdam delectus reprehenderit ea
+				aperiam. Adipisci eveniet quae praesentium earum est. Iusto odit
+				et adipisci placeat illum in. Sit harum nam et nemo nemo quod
+				autem vel. Eos dolorem aut quia. Debitis vel quisquam maiores
+				laborum vero qui. Hic placeat repellat doloribus voluptatem.
+				Modi molestiae nihil perspiciatis nihil minus cupiditate eos
+				quis. Molestias perspiciatis ducimus porro non voluptatibus
+				rerum consequatur sed sint. Perspiciatis deserunt vel et
+				voluptas suscipit maxime.
+			</AccordionSection>
 			<RadialGradient2>
-				iste-quia-sapiente
-				iste-quia-sapiente
-				iste-quia-sapiente
-				iste-quia-sapiente
-				iste-quia-sapiente
-				iste-quia-sapiente
-				iste-quia-sapiente
-				iste-quia-sapiente
-				iste-quia-sapiente
-				iste-quia-sapiente
-				iste-quia-sapiente
-				iste-quia-sapiente
+				iste-quia-sapiente iste-quia-sapiente iste-quia-sapiente
+				iste-quia-sapiente iste-quia-sapiente iste-quia-sapiente
+				iste-quia-sapiente iste-quia-sapiente iste-quia-sapiente
+				iste-quia-sapiente iste-quia-sapiente iste-quia-sapiente
 			</RadialGradient2>
 
 			<RadialGradient>
-				Vitae facere facilis atque aut optio laborum neque. Odit ea velit et ut ut totam saepe. Vel cum incidunt omnis esse error. Animi ratione porro aperiam dolor consequuntur est quia velit veniam. Eaque facere cupiditate.
-		</RadialGradient>
+				Vitae facere facilis atque aut optio laborum neque. Odit ea
+				velit et ut ut totam saepe. Vel cum incidunt omnis esse error.
+				Animi ratione porro aperiam dolor consequuntur est quia velit
+				veniam. Eaque facere cupiditate.
+			</RadialGradient>
 			<HexagonalGradient>
-				fdsfsdfsd
-					FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+				fdsfsdfsd FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 				SSSSSSSSSSSSSSSSSSSSSSS
-		</HexagonalGradient>
-		<GradientSharpStripes>dasfasfasfas</GradientSharpStripes>
-		<Gradient1>sdgsdgsgsgsd</Gradient1>
+			</HexagonalGradient>
+			<GradientSharpStripes>dasfasfasfas</GradientSharpStripes>
+			<Gradient1>sdgsdgsgsgsd</Gradient1>
 
-			<GradientS>
-				ghghghghh
-12231313					
-			</GradientS>
-			
+			<GradientS>ghghghghh 12231313</GradientS>
+
 			<LeaderBoard>
 				<h1>This is leaderboard</h1>
 				<ul>
@@ -283,39 +314,29 @@ function UnitCard() {
 				</ul>
 			</LeaderBoard>
 			<ContainerAlligmentRow>
-			2524542
+				2524542
 				<ContainerAlligmentCell>23524545</ContainerAlligmentCell>
 				<ContainerAlligmentCell>23524545</ContainerAlligmentCell>
 			</ContainerAlligmentRow>
-			
-			<CoverBack>
-				SSSSSSSSSSSSSSSSSs
-			</CoverBack>
+
+			<CoverBack>SSSSSSSSSSSSSSSSSs</CoverBack>
 
 			<CoverbackShorthand>
-				xxxxxxxxxxxxxxxxxxxxxxx
-					
-				Nostrum incidunt tenetur veritatis asperiores odio sed. Eos
-				 iste dolore. Iusto nemo molestiae veritatis doloremque sap
-				 iente laudantium repudiandae ut repellat. Aut repudiandae
-				  ut impedit minus ex. Voluptas veniam voluptas quo nobis
-				   laudantium.
+				xxxxxxxxxxxxxxxxxxxxxxx Nostrum incidunt tenetur veritatis
+				asperiores odio sed. Eos iste dolore. Iusto nemo molestiae
+				veritatis doloremque sap iente laudantium repudiandae ut
+				repellat. Aut repudiandae ut impedit minus ex. Voluptas veniam
+				voluptas quo nobis laudantium.
 			</CoverbackShorthand>
 			<Red>D0ubleD0m1nation</Red>
 			<Green>D0ubleD0m1nation</Green>
-			<CollapsingMargins >
+			<CollapsingMargins>
 				<p>Veritatis odit in sed rerum et aut consequatur minima.</p>
-
 			</CollapsingMargins>
 
-			<CollapsingMargins style={{margin :'10px'}}>
-				<h1 style={{ margin: '70px' }}>
-					ollapsing margin fx
-				</h1>
-				<p style={{ margin: '70px' }}>
-					veritatis alias sunt
-				</p>
-
+			<CollapsingMargins style={{ margin: "10px" }}>
+				<h1 style={{ margin: "70px" }}>ollapsing margin fx</h1>
+				<p style={{ margin: "70px" }}>veritatis alias sunt</p>
 			</CollapsingMargins>
 
 			<CustomOL>
@@ -324,7 +345,6 @@ function UnitCard() {
 				<li>bombud</li>
 				<li>uas</li>
 				<li>METILXXX</li>
-
 			</CustomOL>
 			<h1>Grid Princeps</h1>
 			<GridLine>
@@ -336,18 +356,30 @@ function UnitCard() {
 			</GridLine>
 
 			<GridLine>
-				<img className={stlUnitCard.clearfixit} src={deathDread} alt="1"/>
-				<img className={stlUnitCard.clearfixit}
-					src="https://via.placeholder.com/350" alt="1" />
-				<img className={stlUnitCard.clearfixit}
-					src="https://via.placeholder.com/150" alt="1" />
-				<img className={stlUnitCard.clearfixit}
-					src="https://via.placeholder.com/150" alt="1" />
+				<img
+					className={stlUnitCard.clearfixit}
+					src={deathDread}
+					alt='1'
+				/>
+				<img
+					className={stlUnitCard.clearfixit}
+					src='https://via.placeholder.com/350'
+					alt='1'
+				/>
+				<img
+					className={stlUnitCard.clearfixit}
+					src='https://via.placeholder.com/150'
+					alt='1'
+				/>
+				<img
+					className={stlUnitCard.clearfixit}
+					src='https://via.placeholder.com/150'
+					alt='1'
+				/>
 			</GridLine>
-
 		</Container>
 	);
- }
+}
 
 /* TODO: Qouc'kkka' dosent work
 
