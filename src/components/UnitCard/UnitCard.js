@@ -304,9 +304,43 @@ function UnitCard() {
 		border: "solid 1px lime",
 	});
 
+	class Astartes extends React.Component {
+		constructor(props) {
+			super(props);
+			this.state = {
+				squadName: this.props.squadName,
+				squadMembers: this.props.squadMembers,
+			};
+			this.callsign = this.callsign.bind(this);
+			this.bolter = this.bolter.bind(this);
+		}
+
+		callsign() {
+			alert(this.state.squadName + " is ready!!!");
+		}
+
+		bolter() {
+			console.log("TRTATATATA!!!");
+		}
+
+		render() {
+			return (
+				<div onMouseMove={this.bolter}>
+					<h1>Squad {this.state.squadName}</h1>
+					<h2>Current health {this.state.squadMembers}</h2>
+					<button onClick={this.callsign}>check squad!</button>
+				</div>
+			);
+		}
+	}
+
 	return (
 		<Container>
-			<Javascriptmancer></Javascriptmancer>
+			<Astartes squadName='Clonatium' squadMembers='10'>
+				<p>-----ttt----</p>
+				<h1>HHHHHHHHH</h1>
+				<p>------ttt---</p>
+			</Astartes>
 			<AnimatedDrop>
 				<div className={stlUnitCard.dropdown}>V</div>
 				<div
