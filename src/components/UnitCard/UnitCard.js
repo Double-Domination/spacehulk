@@ -306,6 +306,7 @@ function UnitCard() {
 
 	return (
 		<Container>
+			<Javascriptmancer></Javascriptmancer>
 			<AnimatedDrop>
 				<div className={stlUnitCard.dropdown}>V</div>
 				<div
