@@ -18,6 +18,7 @@ var Diomedes = new ScoutMarine("Diomedes", 250);
 
 function TacticalMarine(astartesNic, hp, heavyWeapon) {
 	ScoutMarine.call(this, astartesNic, hp);
+	this.meltabombCount = 2;
 	this.heavyWeapon = heavyWeapon;
 }
 
@@ -31,19 +32,32 @@ var Thaddeus = new TacticalMarine("Thaddeus", 300, "lightning claws");
 // Boreale.callsign();
 
 TacticalMarine.prototype.meltabomb = function (targetEnemyVehicle) {
-	meltabombIsAviable = true;
-	if (meltabombIsAviable === true) {
+	if (this.meltabombCount > 0) {
 		console.log(
 			this.astartesNic + " is using melatabomb on " + targetEnemyVehicle,
 		);
-		this.meltabombIsAviable = false;
+		this.meltabombCount--;
 	} else {
-		console.log("You alredy used your meltabomb!");
+		console.log("You already used all your meltas!");
 	}
 };
 
-console.log(Thaddeus.meltabombIsAviable);
+console.log("*******************************");
 Thaddeus.meltabomb("BaneBlade");
-console.log(Thaddeus.meltabombIsAviable);
+Thaddeus.meltabomb("Lemanruss");
+Thaddeus.meltabomb("Lemanruss");
+console.log("*******************************");
 
-Thaddeus.meltabomb("BaneBlade");
+class TerminatorMarine extends ScoutMarine {
+	constructor(astartesNic, hp) {
+		super(astartesNic, hp);
+		this.hp += 200;
+	}
+	showCurrentHp() {
+		console.log("Current HP is " + this.hp);
+	}
+}
+
+var Eprael = new TerminatorMarine("Ephrael", 100);
+
+Eprael.showCurrentHp();
