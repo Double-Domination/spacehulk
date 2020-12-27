@@ -42,11 +42,11 @@ TacticalMarine.prototype.meltabomb = function (targetEnemyVehicle) {
 	}
 };
 
-console.log("*******************************");
-Thaddeus.meltabomb("BaneBlade");
-Thaddeus.meltabomb("Lemanruss");
-Thaddeus.meltabomb("Lemanruss");
-console.log("*******************************");
+// console.log("*******************************");
+// Thaddeus.meltabomb("BaneBlade");
+// Thaddeus.meltabomb("Lemanruss");
+// Thaddeus.meltabomb("Lemanruss");
+// console.log("*******************************");
 
 class TerminatorMarine extends ScoutMarine {
 	constructor(astartesNic, hp) {
@@ -60,4 +60,120 @@ class TerminatorMarine extends ScoutMarine {
 
 var Eprael = new TerminatorMarine("Ephrael", 100);
 
-Eprael.showCurrentHp();
+//Eprael.showCurrentHp();
+
+function nonPrimarisAstartes(
+	forceName = (() => `$$$  ${this.name}`)(),
+	hp = 1,
+	armorType = "scout",
+) {
+	let position = { vertical: 0, horizontal: 0 };
+	let currentSquadName = toString();
+	return {
+		forceName,
+		hp,
+		armorType,
+		showStats() {
+			console.log("exec");
+
+			for (const property in this) {
+				if (property !== "showStats") {
+					console.log(" $$ " + property + " -- " + this[property]);
+				}
+			}
+		},
+	};
+}
+
+var Archibael = new nonPrimarisAstartes();
+//Archibael.showStats();
+//console.log(Archibael);
+//console.log("fff " + Archibael.name);
+
+function AutoNamedSquad(hp, armorType) {
+	//this.squadronName = this.function.name;
+	//console.log(this.function.name);
+	this.hp = hp;
+	this.squarNic = Object.getOwnPropertyDescriptor(this, "length");
+	this.armorType = armorType;
+	this.showStats = function () {
+		console.log("exec");
+
+		for (const property in this) {
+			if (property !== "showStats") {
+				console.log(" $$ " + property + " -- " + this[property]);
+			}
+		}
+	};
+}
+
+var Zephrael = new AutoNamedSquad(100, "Terminator armor");
+
+// Zephrael.showStats();
+
+//console.log("**********************");
+// console.log("ZZ " + Zephrael.name);
+
+// function jftp() {
+// 	console.log("SSSS " + this.name);
+// }
+
+// jftp();
+
+var forwardSymbol = Symbol("forward");
+var backwardSymbol = Symbol("backward");
+
+var first = 1,
+	second = 1;
+//console.log(second === first);
+
+//console.log(descriptorSymbol);
+
+//console.log(descriptorSymbol.toString());
+
+const isEqual = first === second ? "true" : "false";
+//console.log(isEqual);
+
+var database = {
+	firstName: "Endrid",
+};
+
+var Sidentifer = Symbol("symbolicIdentifer");
+
+database[Sidentifer] = "When im purging";
+
+// console.log(database[Sidentifer] + " Sym ind");
+// console.table(database + " DB");
+
+class withSymbols extends ScoutMarine {
+	constructor(squadNic, squadHp, stelalth) {
+		super(squadNic, squadHp);
+		this.stigma = Symbol(squadNic);
+		this.showStats = function () {
+			console.log("exec");
+
+			for (const property in this) {
+				if (property !== "showStats") {
+					console.log(" $$ " + property + " -- " + this[property]);
+				}
+			}
+		};
+	}
+
+	stealthEnabled(stealth) {
+		let currentStateOfStealth = stealth;
+		if (stealth === true) {
+			console.log("Your squad is invisible");
+		} else {
+			console.log("Stealth is deactivated now");
+		}
+	}
+}
+
+var Boroz = new withSymbols("Boroz", 100, true);
+
+console.log(Boroz.stigma);
+
+//global Symbol db ----- let id =Symbol.for('id');
+// let anotherId =Symbol.for('id');
+// anotherId===id ---- true
