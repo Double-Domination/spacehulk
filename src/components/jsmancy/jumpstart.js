@@ -172,8 +172,76 @@ class withSymbols extends ScoutMarine {
 
 var Boroz = new withSymbols("Boroz", 100, true);
 
-console.log(Boroz.stigma);
+//console.log(Boroz.stigma);
 
 //global Symbol db ----- let id =Symbol.for('id');
 // let anotherId =Symbol.for('id');
 // anotherId===id ---- true
+
+//TODO create a manual analog og 'new' operator (new simply attaching 'this' cotext to function constructor)
+// Factory??
+function constructorLike(passedObj) {
+	let temporalObj = passedObj;
+	temporalObj.property = 1;
+	temporalObj.option = "optional weapon";
+	let resultingObj = temporalObj;
+
+	return resultingObj;
+}
+
+//object factories
+
+function AssaultSquad(squadNic, hp = 100) {
+	let position = Symbol("position");
+	this[position] = { x: 0, y: 0 };
+
+	this.hp = hp;
+	this.squadNic = squadNic;
+	this.callsignSquad = function () {
+		console.log(
+			`Squad ${this.squadNic}  is reporting (${this.hp} current hp)`,
+		);
+	};
+
+	this.changePosition = function (x, y) {
+		console.log(
+			`changing position from - ${this[position].x} | ${this[position].y} ...`,
+		);
+		this[position].x = x;
+		this[position].y = y;
+
+		console.log(
+			`Position changed to -${this[position].x} | ${this[position].y} ...`,
+		);
+	};
+}
+
+var clonatiums = new AssaultSquad("Cyprus", 200);
+
+//clonatiums.callsignSquad();
+//clonatiums.changePosition(8, 5);
+
+function VenerableDreadnout(
+	dreadnoutName,
+	hp = 400,
+	{ cqc, ranged } = { cqc: "claws", ranged: "bolter" },
+) {
+	return {
+		dreadnoutName: dreadnoutName,
+		hp: hp,
+		weapons: function () {
+			console.log(`
+			purging heretics in close combat with ${cqc}
+			Also Heretics can be purged with ${ranged}
+			`);
+		},
+	};
+}
+
+var bascicDreadnoutWeapons = {
+	cqc: "Storm fangs of Wolf Gang",
+	ranged: "Assault canon",
+};
+
+var orama = VenerableDreadnout("Venerable Orama", 500);
+orama.weapons();
