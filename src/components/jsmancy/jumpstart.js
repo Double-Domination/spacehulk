@@ -244,4 +244,57 @@ var bascicDreadnoutWeapons = {
 };
 
 var orama = VenerableDreadnout("Venerable Orama", 500);
-orama.weapons();
+// orama.weapons();
+
+function augmentator(constructorFn) {
+	return function () {
+		return new constructorFn(...arguments);
+		// return new (constructorFn.bind.apply(null, arguments));
+	};
+}
+
+function Chaplain(heroName) {
+	//private via closure
+	var weaponList = [],
+		hp = 200;
+
+	//public
+	this.heroName = heroName;
+	this.heroClass = "master of sanctity";
+	this.eqipWeapon = function (weaponToEqip) {
+		weaponToEqip.eqipped = true;
+		weaponList.push(weaponToEqip);
+		console.log(` ${this.heroName} grabs a ${weaponToEqip.weaponName} `);
+	};
+
+	this.showEqipedWeapons = function () {
+		console.log(" Trying to find eqipment");
+		if (weaponList.length > 0) {
+			return console.log(` ${this.heroName}.... have some weapons
+			looks like ${weaponList.find((w) => w.eqipped).weaponName}
+			`);
+		} else {
+			return console.log(` ${this.heroName} looks disarmed`);
+		}
+	};
+}
+
+//prototype
+Chaplain.prototype = {
+	constructor: Chaplain,
+	callsign: function () {
+		console.log(`Chaplain ${this.heroName} is ready for action`);
+	},
+};
+
+var relicPowerSword = {
+	weaponName: "Power Sword Of Great Power",
+	strength: 5,
+	armorPiercing: 3,
+	damage: 2,
+};
+
+var grimaldus = new Chaplain("Grimaldus");
+grimaldus.eqipWeapon(relicPowerSword);
+grimaldus.showEqipedWeapons();
+grimaldus.callsign();
