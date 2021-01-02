@@ -261,9 +261,12 @@ function Chaplain(heroName) {
 	//public
 	this.heroName = heroName;
 	this.heroClass = "master of sanctity";
+	this.currentWeapon = false;
 	this.eqipWeapon = function (weaponToEqip) {
 		weaponToEqip.eqipped = true;
 		weaponList.push(weaponToEqip);
+		this.currentWeapon = false; // clean prevoius weapon
+		Object.assign(this.currentWeapon, weaponToEqip); // copy currnt weapon in to instace
 		console.log(` ${this.heroName} grabs a ${weaponToEqip.weaponName} `);
 	};
 
@@ -285,6 +288,17 @@ Chaplain.prototype = {
 	callsign: function () {
 		console.log(`Chaplain ${this.heroName} is ready for action`);
 	},
+	allocateAttack: function (attackTarget) {
+		if (this.currentWeapon.weaponName !== false) {
+			console.log(
+				`using ${this.currentWeapon.weaponName}  on ${attackTarget}`,
+			);
+			attackTarget.hp -= this.currentWeapon.damage;
+			console.log(`attack sucssesfull target hp ${attackTarget.hp}`);
+		} else {
+			console.log(`weapon is not eqipped yet!!`);
+		}
+	},
 };
 
 var relicPowerSword = {
@@ -298,3 +312,110 @@ var grimaldus = new Chaplain("Grimaldus");
 grimaldus.eqipWeapon(relicPowerSword);
 grimaldus.showEqipedWeapons();
 grimaldus.callsign();
+
+console.log("******************");
+
+grimaldus.allocateAttack(Boroz);
+// method overriding
+
+//console.log('________________');
+//console.log(Object.keys(Boroz));
+
+//Creature ->MovingGameObject ->DrawableGameObject -> GameObject
+// Psyker -> MovingGameObject -> DrawableGameObject
+function GameObject(nameOfTheGame) {
+	this.nameOfTheGame = nameOfTheGame;
+}
+
+function DrawableGameObject(sprite) {
+	GameObject.call(this, "Supa Straategy");
+	this.sprite = sprite;
+}
+
+DrawableGameObject.prototype = Object.create(GameObject.prototype);
+DrawableGameObject.prototype.constructor = DrawableGameObject;
+
+//specific DrawableGameObject
+DrawableGameObject.prototype.draw = function () {
+	console.log(`Drawing sprite: ${this.sprite}`);
+	//draw sprite
+};
+
+// Helper position class
+function Position(x, y) {
+	this.x = x;
+	this.y = y;
+}
+
+//
+Position.prototype.currentCoordinates = function () {
+	console.log(` Curent position ${this.x} + ${this.y}`);
+};
+
+//Gamegobject class
+function MovingGameObject(position, sprite) {
+	DrawableGameObject.call(this, sprite);
+	this.position = position;
+}
+
+//Establishing prototypes
+
+MovingGameObject.prototype = Object.create(DrawableGameObject.prototype);
+
+MovingGameObject.prototype.constructor = MovingGameObject;
+
+// Adding new method to proto
+MovingGameObject.prototype.movesTo = function (newPosition) {
+	this.position = newPosition;
+	console.log(`${this} moves to ${newPosition}`);
+};
+
+function Psyker(name, position, sprite, hp = 100) {
+	// Call base type constuctor
+	MovingGameObject.call(this, position, sprite);
+	this.name = name;
+	this.hp = hp;
+}
+
+Psyker.prototype = Object.create(MovingGameObject.prototype);
+Psyker.prototype.constructor = Psyker;
+
+function Librarian(name, position, sprite) {
+	// Call base type constructor
+	Psyker.call(this, name, position, sprite);
+}
+
+//prototype
+Librarian.prototype = Object.create(Psyker.prototype);
+Librarian.prototype.constructor = Psyker;
+
+//Librarian specific
+Psyker.prototype.heal = function (target) {
+	console.log(`${this.name} heals ${target.name} +50 hp> ${target.hp}`);
+	target.hp += 50;
+};
+
+// Psyker specific
+Librarian.prototype.castsSmite = function (target) {
+	console.log(`${this.name} Casts smite on ${target}`);
+	if (target.appliedEffects) {
+		target.appliedEffects.push("smite");
+	} else {
+		target.appliedEffects = ["smite"];
+	}
+};
+
+Librarian.prototype.heals = function (target) {
+	// call baseclass heals method
+	Psyker.prototype.heal.call(this, target);
+
+	console.log(` ${this} cleanses all negative effects in ${target}`);
+	target.appliedEffects = [];
+};
+
+console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+
+var borzugan = new Psyker("Borzugan", new Position(0, 0), "borzugan.jpg");
+borzugan.draw();
+borzugan.heal(borzugan);
+console.log(borzugan.hp);
