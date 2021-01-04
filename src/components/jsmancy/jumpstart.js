@@ -309,13 +309,11 @@ var relicPowerSword = {
 };
 
 var grimaldus = new Chaplain("Grimaldus");
-grimaldus.eqipWeapon(relicPowerSword);
-grimaldus.showEqipedWeapons();
-grimaldus.callsign();
+// grimaldus.eqipWeapon(relicPowerSword);
+// grimaldus.showEqipedWeapons();
+// grimaldus.callsign();
 
-console.log("******************");
-
-grimaldus.allocateAttack(Boroz);
+// grimaldus.allocateAttack(Boroz);
 // method overriding
 
 //console.log('________________');
@@ -397,25 +395,85 @@ Psyker.prototype.heal = function (target) {
 
 // Psyker specific
 Librarian.prototype.castsSmite = function (target) {
-	console.log(`${this.name} Casts smite on ${target}`);
+	console.log(`${this.name} Casts smite on ${target.name}`);
 	if (target.appliedEffects) {
 		target.appliedEffects.push("smite");
+		target.appliedEffects.push("energized");
 	} else {
-		target.appliedEffects = ["smite"];
+		target.appliedEffects = ["smite", "energized"];
 	}
 };
 
-Librarian.prototype.heals = function (target) {
+Librarian.prototype.heal = function (target) {
 	// call baseclass heals method
 	Psyker.prototype.heal.call(this, target);
 
 	console.log(` ${this} cleanses all negative effects in ${target}`);
 	target.appliedEffects = [];
+	console.log(`All negative effects vancvicsshed [ ${target.name} ]`);
 };
 
-console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+//console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
 
-var borzugan = new Psyker("Borzugan", new Position(0, 0), "borzugan.jpg");
-borzugan.draw();
-borzugan.heal(borzugan);
-console.log(borzugan.hp);
+//var borzugan = new Librarian("Borzugan", new Position(0, 0), "borzugan.jpg");
+//borzugan.draw();
+// borzugan.heal(borzugan);
+// borzugan.castsSmite(borzugan);
+// console.log(borzugan.appliedEffects);
+
+// borzugan.heal(borzugan);
+
+//console.log(borzugan.appliedEffects);
+//console.log(borzugan.appliedEffects);
+
+const MasterOfSancticity = {
+	hitPoints: 40,
+};
+
+console.log("******************");
+
+boltPistol = {
+	weaponName: "boltpistol",
+	weaponType: "pistol",
+	strength: 4,
+	armorPiercing: 0,
+	damage: 1,
+};
+
+chainsword = {
+	weaponName: "chainsword",
+	weaponType: "mele",
+	strength: "user",
+	armorPiercing: 1,
+	damage: 1,
+};
+
+function readonly(target, key, descriptor) {
+	descriptor.writable = false;
+	return descriptor;
+}
+
+class BaseHero {
+	constructor(heroName, wargear, heroType) {
+		this.heroName = heroName || "BlackShield";
+		this.wargear = wargear || { boltPistol, chainsword };
+		this.heroType = heroType || "capitan";
+		this.hp = 4;
+	}
+
+	callsign() {
+		console.log(`-=${this.heroType} ${this.heroName} is reporting=-`);
+	}
+
+	showStats() {
+		console.log(
+			`${this.heroName}  currenthp = ${
+				this.hp
+			} eqipped weapons: ${Object.keys(this.wargear)}`,
+		);
+	}
+}
+
+var bazel = new BaseHero("Bazel");
+bazel.callsign();
+bazel.showStats();
