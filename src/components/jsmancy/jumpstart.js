@@ -475,5 +475,116 @@ class BaseHero {
 }
 
 var bazel = new BaseHero("Bazel");
-bazel.callsign();
-bazel.showStats();
+//bazel.callsign();
+//bazel.showStats();
+
+// ...polimorphic convert
+class CashWithTypeCast {
+	constructor(argument) {
+		let dollars; //private
+
+		if (typeof argument === "number") {
+			console.log(`passed number`);
+			return (dollars = argument);
+		} else if (typeof argument === "string") {
+			console.log(`passed string.......coverted to Number() `);
+
+			return (dollars = Number(argument));
+		}
+	}
+}
+
+class postponedInitDollars {
+	constructor(cash) {
+		this.dollars = new CashWithTypeCast(cash); //public
+		const dollarsCustom = new CashWithTypeCast(cash); //private
+	}
+}
+
+//const someCashInDollars = new postponedInitDollars("900");
+
+class douglasCrockfordWayCounstructors {
+	constructor(spec) {}
+}
+
+function IncAndDecCount() {
+	//based on closures
+	let counter = 0;
+	function increease() {
+		counter += 1;
+		return counter;
+	}
+
+	function decreese() {
+		counter -= 1;
+		return counter;
+	}
+
+	function show() {
+		console.log("Inner counter ->>> " + counter);
+	}
+
+	return Object.freeze({ increease, decreese, show });
+}
+
+const forceCounter = IncAndDecCount();
+
+forceCounter.increease();
+forceCounter.increease();
+forceCounter.decreese();
+//forceCounter.show();
+//console.log("Inner state of object ->>> " + JSON.stringify(forceCounter));
+
+//console.log(JSON.stringify(bazel));
+
+console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+
+// function smite(target) {
+// 	console.log(`Lightning strikes ${target.name}`);
+
+// }
+
+function Psyker(psykerSpec) {
+	let { psyDisciline } = psykerSpec;
+	return Object.freeze(psyDisciline);
+}
+
+function heroicPsyker(spec) {
+	// Improvised interfaces
+	let { name, hp, armor } = spec;
+
+	const spells = Psyker(tempestasDiscipline);
+
+	const callUnitStatus = function () {
+		console.log(`
+			<><><><><><><>
+			${name} hp ${hp} armor ${armor} psy${JSON.stringify(spells)} $ 
+			<><><><><><><>
+		`);
+	};
+
+	return Object.freeze(callUnitStatus, spells);
+}
+
+const burtomasSpec = {
+	name: "Burtomas",
+	hp: 100,
+	armor: "Gravis Armor",
+};
+
+const tempestasDiscipline = {
+	tempestWrath: function () {
+		console.log(
+			`Powerfull Fenris spirits empower you! Gain +7 attacks in CQC!`,
+		);
+	},
+	stormCaller: function () {
+		console.log(
+			`Powerfull tempest provde cover to your troops! Gain -1 to hit`,
+		);
+	},
+};
+
+const burtomas = heroicPsyker(burtomasSpec);
+
+burtomas.callUnitStatus;
