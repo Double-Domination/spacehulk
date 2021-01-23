@@ -3,17 +3,8 @@
  */
 import React from "react";
 import ReactDOM from "react-dom";
+
 import "./index.css";
-import UnitCard from "./components/UnitCard/UnitCard";
+import ImprovisedREPL from "./IREPL.js";
 
-/* 
-import MetaCard from "./components/UnitvCard/MetaCard";
-
-
-<MetaCard />;
- */
-/* rerum animi quae */
-
-ReactDOM.render(<UnitCard />, document.getElementById("root"));
-
-/* FIXME: Dosent render correctly. Need to figurre out why */
+ReactDOM.render(<ImprovisedREPL />, document.getElementById("root"));
