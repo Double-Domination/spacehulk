@@ -32,7 +32,9 @@ const ImprovisedREPL = (props) => {
 	}
 	//redner phase
 	return (
-		<BaseOutput>ImprivisedREPL>>>{showDown("Boris here! ", 4)}</BaseOutput>
+		<BaseOutput>ImprivisedREPL>>>{
+			showDown("Boris here! ", 4)}
+			</BaseOutput>
 	);
 };
 
