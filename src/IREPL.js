@@ -32,11 +32,22 @@ const ImprovisedREPL = (props) => {
 	}
 	//redner phase
 	return (
-		<BaseOutput>ImprivisedREPL>>>{
-			showDown("Boris here! ", 4)}
-			</BaseOutput>
+		<BaseOutput>ImprivisedREPL>>>{showDown("Boris here! ", 4)}</BaseOutput>
 	);
 };
 
 // Componet export
 export default ImprovisedREPL;
+
+function loadScript(src) {
+	let script = document.createElement("script");
+	script.src = src;
+	document.head.append(script);
+}
+
+function loadScript(src, callback) {
+	let script = document.createElement("script");
+	script.src = src;
+	script.onload = () => callback(script);
+	document.head.append(script);
+}
