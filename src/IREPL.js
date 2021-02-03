@@ -51,3 +51,10 @@ function loadScript(src, callback) {
 	script.onload = () => callback(script);
 	document.head.append(script);
 }
+
+//helper function
+var indexedKeysInObject = {
+	keyIndex: function (n) {
+		return this[Object.keys(this)[n]];
+	},
+};
