@@ -237,3 +237,83 @@ var isAnagram = function (test, original) {
 
 	return result;
 })("123", "321");
+
+function anagramRecursive(testStr, origStr) {
+	// convert to arrays and ignore case
+	let arrTest = test.toLowerCase().split("");
+	let arrOriginal = original.toLowerCase().split("");
+	let arrRemoved = [];
+
+	//extract first symbol from test string
+
+	//For better understanding test string used as stack
+	//if character was finded ->> delete from both arrays
+	arrRemoved.push(arrOriginal.find(removeCharIfExisted(arrTest[0])));
+
+	function removeCharIfExisted(character, element, index, array) {
+		if (element === character) {
+			let deletedCharr = array.splice(index, 1);
+			console.log(` Elem ${element} removed in ${array}[${index}]`);
+			console.log(`Deleted Char ${deletedCharr}`);
+			deletedCharr = arrTest.shift();
+			console.log(`Shifting arrTest`);
+			console.log(`Deleted Char ${deletedCharr}`);
+			return true;
+		} else {
+			console.log(`Char ${extractedCharacter} didnt found`);
+			return false;
+		}
+	}
+}
+
+var srtTest = test.toLowerCase().split("").sort().join("");
+var srtOriginal = original.toLowerCase().split("").sort().join("");
+
+if (srtTest === srtOriginal) {
+	return true;
+} else {
+	return false;
+}
+
+if (year % 100 >= 1) {
+	return Math.floor(year / 100) + 1;
+} else {
+	return Math.floor(year / 100);
+}
+
+//codewars factorial calculations
+function calculateFactorial(n) {
+	let result;
+	if (n === 0) {
+		return result;
+	} else {
+		return calculateFactorial(n - 1);
+	}
+}
+
+function factorial(n) {
+	if (n < 0 || n > 12) throw new RangeError();
+	return n <= 1 ? 1 : n * factorial(n - 1);
+}
+
+function removeEveryOther(arr) {
+	return arr.filter(function (elem, index) {
+		return index % 2 === 0;
+	});
+}
+
+//remove doplicates very short
+function distinct(arr) {
+	return [...new Set(arr)];
+}
+
+//function find capitals
+function capital(capitals) {
+	return capitals.map(function (e) {
+		return "The capital of " + (e.state || e.country) + " is " + e.capital;
+	});
+}
+
+function findShort(s) {
+	return Math.min(...s.split(" ").map((s) => s.length));
+}
