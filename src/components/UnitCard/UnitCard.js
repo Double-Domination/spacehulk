@@ -304,6 +304,11 @@ function UnitCard() {
 		border: "solid 1px lime",
 	});
 
+	const ForCV = styled("div")({
+		backgroundColor: "tomato",
+		border: "1px solid red",
+	});
+
 	class Astartes extends React.Component {
 		constructor(props) {
 			super(props);
@@ -336,6 +341,10 @@ function UnitCard() {
 
 	return (
 		<Container>
+			<ForCV>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				Laborum, tempore.
+			</ForCV>
 			<Astartes squadName='Clonatium' squadMembers='10'>
 				<p>-----ttt----</p>
 				<h1>HHHHHHHHH</h1>

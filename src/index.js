@@ -3,8 +3,9 @@
  */
 import React from "react";
 import ReactDOM from "react-dom";
-
+//import UnitCard from "./components/UnitCard/UnitCard";
+import CV from "./components/ForCV/CV";
 import "./index.css";
-import ImprovisedREPL from "./IREPL.js";
+//import ImprovisedREPL from "./IREPL.js";
 
-ReactDOM.render(<ImprovisedREPL />, document.getElementById("root"));
+ReactDOM.render(<CV />, document.getElementById("root"));

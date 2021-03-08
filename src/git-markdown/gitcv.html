@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RS School CV</title>
+    <link rel="stylesheet" href="./normalize.css">
+    <!-- <link rel="stylesheet" href="./reset.css"> -->
+    <style>
+        /* 
+            block__element_modifier
+        */
+        body{
+            background-color: rgb(28, 31, 31);
+        }
+        .container{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0 auto;
+            display: block;
+            max-width: 960px;
+            border: 1px solid #30a230;
+        }
+
+
+        .header-main{
+            text-align: right;
+            background-color: #fb4447;
+            border-bottom: 3px dashed green;
+            color: white;
+        }
+
+
+        .header-main__heading{
+            display: inline-block;
+        }
+
+        .footer-main{
+            background-color: #d3787b;
+            border-top: 3px dashed red;
+            color: white;
+        }
+
+        .avatar{
+            margin: 0;
+
+            padding: 15px;
+            display: block;
+
+        }
+
+        .avatar__image{
+            overflow: hidden;
+            border-radius: 100%;
+            border: 3px solid gold;
+            width: 200px;
+            height: 200px; 
+            display: block;
+            object-fit: cover;
+            object-position: 50% 50%;
+            max-width: 100%;
+        }
+
+        .avatar__caption{
+            display: block;
+            
+        }
+
+        .main{
+            background-color: white;
+        }
+
+        .main-left{
+            margin: 0;
+            width: 280px;
+            box-sizing: border-box;
+            background-color:#2a374a;
+            display: inline-block;
+            min-height:100%;
+        }
+
+        .main-right{
+            margin: 0;
+            width: 422px;
+            box-sizing: border-box;
+            background-color: darkgrey;
+            display: inline-block;
+            min-height:100%;
+        }
+
+        .completed{
+            color:rgb(14, 184, 14);
+            background-color: black;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header-main">
+            <figure class="avatar">
+                <img class="avatar__image" src="http://placekitten.com/g/200/300" alt="My Avatar"> 
+                <figcaption class="avatar__caption">
+                    <h2>Konstantin Chernigovskiy</h2>
+                </figcaption>
+            </figure>
+            <h1>RS School CV</h1>            
+            <h5>JS-Frontend course</h5>
+        </header>
+        
+        <main class="main">
+            
+            <aside class="main-left">
+                <nav>
+                    <h3>Navigation</h3>
+                    <ol>
+                        <li>Proffesional goals:</li>
+                        <li>Work expirience</li>
+                        <li>Skills</li>
+                        <li>Education</li>
+                        <li>Code Examples</li>
+                        <li>Languages</li>
+                        <li>Hobbies</li>
+                    </ol>
+                </nav>
+            </aside>
+            <article class="main-right">
+                <section>
+                <h4>Proffesional goals</h4>
+                    <ul>
+                        <li>Strongly intended to change my life and what im do for the living.</li>
+                        <li>Ability to read and translate english books/articles/whatever without dictionary.</li>
+                    </ul>
+                </section>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ea.
+            </article>
+        </main>
+    
+        <footer class="footer-main">
+            <div class="reqirements">
+                <ul>
+                    <li>valid w3c validator</li>
+                    <li>No warnings</li>
+                    <li>Document checking completed. No errors or warnings to show</li>
+                    <li class="completed">semantic</li>
+                    <li class="completed">article aside details figure figcaption main mark nav section summary time</li>
+                    <li class="completed">5 semantic tags</li>
+                    <li class="completed">5 different headers h1 to h5</li>
+                    <li class="completed">css styled</li>
+                    <li class="completed">content block which is centered on page</li>
+                    <li class="completed">image proportions doesnt disturbed </li>
+                    <li class="completed">image has alt attribute</li>
+                    <li>Contacts and Skills list made by ul=> li</li>
+                    <li><p>CV содержит контакты для связи, краткую информацию о себе, перечень навыков, примеры кода или выполненных проектов, информацию об образовании и уровне английского +10</p></li>
+                    <li>Must be completed in english</li>
+                    <li>Link to task https://github.com/rolling-scopes-school/stage0/blob/master/stage0/tasks/html-css.md</li>
+                    <li>screenshot, link to deply gh-pages</li>
+                    <li>Self estimation on youtube</li>
+
+                </ul>
+            </div>
+            <a href="http://https://rolling-scopes-school.github.io/stage0/#/stage0/tasks/html-css-git">Link to task</a>
+        </footer>
+
+    </div>
+</body>
+</html>
