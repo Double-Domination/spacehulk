@@ -14,6 +14,7 @@ function reductor(stringToReduce) {
 				prevous += currentValue.toUpperCase();
 			} else {
 				prevous += currentValue;
+        
 			}
 		}
 		if (currentArrayName.length === arrCurrentIndex + 1) {
