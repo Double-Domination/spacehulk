@@ -1,36 +1,24 @@
-// object  literal
-const Mercenary = {
-  name: 'muter',
-  proficency:'sniper',
+'use strict';
+
+const mod = (function () {
+  let privateName = 'secret agent';
+  let prvateArmortype = 'armor of chadows';
+
+  return {
+    setName: (nick) => {
+      privateName = nick;
+      console.log("Name changed " + privateName);
+    },
+    setArmorType: (armorType) => {
+      prvateArmortype= armorType;
+      console.log('Armor type changed ' + prvateArmortype);
+    },
+  }
+})()
+
+mod.setArmorType('relic');
+
+console.log(
   
-  
-};
-
-const EnemyUnit = {
-  type:'tank',
-  
-}
-
-const augMerc = Object.create(Mercenary);
-//figure out how it works
-console.log(augMerc.proficency)
-
-const superMerc = new Object();
-
-console.log(superMerc.name)
-
-Mercenary['weapon'] = 'bolter';
-
-console.log(Mercenary);
-
-Object.defineProperty(Mercenary, 'gear', {
-  value: 'kracken grenades',
-  writable: false,
-  enumerable: true,
-  configurable: false,
-});
-
-
-
-
-
+  mod.privateName
+)
